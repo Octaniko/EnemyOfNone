@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="1-Bit"
+run/main_scene="uid://srlmnfge160e"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+
+[autoload]
+
+UnitManager="*res://scripts/unit_manager.gd"
 
 [rendering]
 
