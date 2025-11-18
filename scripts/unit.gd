@@ -15,7 +15,7 @@ func seeker_setup():
 
 func _physics_process(delta: float) -> void:
 	if navigation_agent_2d.is_navigation_finished():
-		seeker_setup()
+		return
 	var current_agent_position = global_position
 	var next_path_position = navigation_agent_2d.get_next_path_position()
 	velocity = current_agent_position.direction_to(next_path_position) * movement_speed
