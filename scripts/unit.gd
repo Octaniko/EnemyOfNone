@@ -1,40 +1,22 @@
 extends CharacterBody2D
 
-@export var speed: float = 200.0
+@export var movement_speed: float = 200.0
+@export var target: Node2D = null
 
-# Ссылка на NavigationAgent2D
-@onready var agent: NavigationAgent2D = $NavigationAgent2D
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
-# Целевая точка, за которой идет юнит (установит внешний менеджер)
-var target_position: Vector2 = Vector2.ZERO
+func _ready() -> void:
+	call_deferred("seeker_setup")
 
-func _ready():
-	# Параметры агента: как близко подходит к пути и к цели
-	agent.path_desired_distance = 15.0
-	agent.target_desired_distance = 15.0
-	# Ждем первый кадр физики, чтобы сервер навигации синхронизировался
-	call_deferred("_post_ready")
-
-func _post_ready():
+func seeker_setup():
 	await get_tree().physics_frame
-	# Устанавливаем начальную цель
-	agent.target_position = target_position
+	if target:
+		navigation_agent_2d.target_position = target.global_position
 
-func set_target(pos: Vector2):
-	target_position = pos
-	agent.target_position = pos
-
-func _physics_process(delta):
-	if agent.is_navigation_finished():
-		# если достигли цели, можно остановиться или просто не двигаться
-		velocity = Vector2.ZERO
-	else:
-		var next_point = agent.get_next_path_position()
-		# Направление к следующей точке:
-		var dir = (next_point - global_position).normalized()
-		velocity = dir * speed
-	# перемещаемся
+func _physics_process(delta: float) -> void:
+	if navigation_agent_2d.is_navigation_finished():
+		seeker_setup()
+	var current_agent_position = global_position
+	var next_path_position = navigation_agent_2d.get_next_path_position()
+	velocity = current_agent_position.direction_to(next_path_position) * movement_speed
 	move_and_slide()
-
-	# Можно обновлять цель динамически, если target_position часто меняется:
-	agent.target_position = target_position
