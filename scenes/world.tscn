@@ -1,14 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://srlmnfge160e"]
+[gd_scene load_steps=5 format=3 uid="uid://srlmnfge160e"]
 
 [ext_resource type="Script" uid="uid://ywl8oclcqisv" path="res://scripts/unit_manager.gd" id="1_4wyf3"]
-[ext_resource type="PackedScene" uid="uid://cn0df6p1m8or6" path="res://scenes/unit.tscn" id="2_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://cn0df6p1m8or6" path="res://scenes/unit.tscn" id="3_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://cl1oh7qlfhj1m" path="res://scenes/player.tscn" id="3_k0juu"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4wyf3"]
+vertices = PackedVector2Array(176.78906, 46.398438, 60.617188, 137.15625, -121.90625, 93.86719, -132.22656, 9.5703125, -32.929688, -43.820313, 72.703125, -81.21875)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-37, -53, 76, -93, 191, 48, 63, 148, -131, 102, -143, 4)])
+
 [node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("3_k0juu")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="UnitManager" type="Node2D" parent="."]
 script = ExtResource("1_4wyf3")
 
-[node name="Unit" parent="UnitManager" instance=ExtResource("2_4wyf3")]
+[node name="Unit" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-205, -75)
 
-[node name="Player" parent="." instance=ExtResource("3_k0juu")]
+[node name="Unit2" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(89, -47)
+
+[node name="Unit3" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(113, 58)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_4wyf3")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]

@@ -19,3 +19,5 @@ scale = Vector2(0.65789473, 0.65789473)
 texture = SubResource("PlaceholderTexture2D_rwgxs")
 
 [node name="StateMachine" type="Node" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
