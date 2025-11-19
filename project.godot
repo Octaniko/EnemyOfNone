@@ -24,8 +24,9 @@ window/stretch/mode="canvas_items"
 
 [global_group]
 
-Player="The player."
-Units="Player-controlled unit."
+player="The player."
+units="Player-controlled unit."
+targets="Targets for enemies."
 
 [layer_names]
 

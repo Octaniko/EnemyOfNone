@@ -2,18 +2,22 @@ class_name State
 extends Node
 
 @export var animation_name: String
-@export var move_speed := 400
+@export var move_speed := 100
 
-var parent: Enemy
+var parent: CharacterBody2D
+var animations: AnimatedSprite2D
 
 func enter():
-	parent.animations.play(animation_name)
+	animations.play(animation_name)
 
 func exit():
 	pass
 
-func process_frame(delta: float) -> State:
+func process_physics(delta: float) -> State:
 	return null
 
-func process_physics(delta: float) -> State:
+func process_input(event: InputEvent) -> State:
+	return null
+
+func process_frame(delta: float) -> State:
 	return null

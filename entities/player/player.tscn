@@ -7,7 +7,7 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rwgxs"]
 size = Vector2(19, 19)
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" groups=["player", "targets"]]
 up_direction = Vector2(0.2195122, -0.9756098)
 script = ExtResource("1_3vyb7")
 
