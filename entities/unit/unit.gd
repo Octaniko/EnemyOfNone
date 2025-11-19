@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var target: Node2D = null
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	call_deferred("seeker_setup")
@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		_on_navigation_agent_2d_velocity_computed(new_velocity)
 	move_and_slide()
-	sprite_2d.flip_h = false if velocity.x >0 else true
+	animated_sprite_2d.flip_h = false if velocity.x >0 else true
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
