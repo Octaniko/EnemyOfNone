@@ -1,0 +1,141 @@
+[gd_scene load_steps=19 format=3 uid="uid://kfgm162v1xgt"]
+
+[ext_resource type="Script" uid="uid://cs05woliwjw83" path="res://entities/enemy/enemy.gd" id="1_dt443"]
+[ext_resource type="Texture2D" uid="uid://ddu0b40pk08ac" path="res://entities/enemy/slime_green.png" id="1_ksmh7"]
+[ext_resource type="Script" uid="uid://bcneufwksqfqs" path="res://entities/enemy/states/enemy_idle.gd" id="2_3fvr7"]
+[ext_resource type="Script" uid="uid://d0lr6g68pv7ak" path="res://state_machine/state_machine.gd" id="3_3fvr7"]
+[ext_resource type="Script" uid="uid://cbq6v6vodyt1i" path="res://entities/enemy/states/enemy_follow.gd" id="5_4wwj3"]
+[ext_resource type="Script" uid="uid://bp7j5yc446xkk" path="res://entities/enemy/enemy_move.gd" id="6_721x4"]
+[ext_resource type="Script" uid="uid://btp8i2hvvpwgb" path="res://entities/enemy/enemy_attack.gd" id="7_eaj7m"]
+[ext_resource type="Script" uid="uid://bhyd4w34ltcol" path="res://entities/enemy/enemy_hurt.gd" id="8_a8fs5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wwj3"]
+atlas = ExtResource("1_ksmh7")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_721x4"]
+atlas = ExtResource("1_ksmh7")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d50e0"]
+atlas = ExtResource("1_ksmh7")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61ikd"]
+atlas = ExtResource("1_ksmh7")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im2q6"]
+atlas = ExtResource("1_ksmh7")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fvr7"]
+atlas = ExtResource("1_ksmh7")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksmh7"]
+atlas = ExtResource("1_ksmh7")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt443"]
+atlas = ExtResource("1_ksmh7")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dt443"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wwj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_721x4")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d50e0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61ikd")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im2q6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fvr7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksmh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt443")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_im2q6"]
+radius = 4.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_dt443")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dt443")
+animation = &"attack"
+autoplay = "idle"
+frame_progress = 0.843418
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_3fvr7")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "follow_state", "attack_state", "hurt_state")]
+script = ExtResource("2_3fvr7")
+move_state = NodePath("../Move")
+follow_state = NodePath("../Follow")
+attack_state = NodePath("../Attack")
+hurt_state = NodePath("../Hurt")
+animation_name = "idle"
+move_speed = null
+
+[node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "attack_state", "hurt_state", "idle_state")]
+script = ExtResource("5_4wwj3")
+move_state = NodePath("../Move")
+attack_state = NodePath("../Attack")
+hurt_state = NodePath("../Hurt")
+idle_state = NodePath("../Idle")
+animation_name = "move"
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource("6_721x4")
+animation_name = "move"
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("7_eaj7m")
+animation_name = "attack"
+
+[node name="Hurt" type="Node" parent="StateMachine"]
+script = ExtResource("8_a8fs5")
+animation_name = "hurt"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_im2q6")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

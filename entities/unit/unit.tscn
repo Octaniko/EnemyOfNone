@@ -159,7 +159,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Unit" type="CharacterBody2D"]
+[node name="Unit" type="CharacterBody2D" groups=["Units"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_o7ajc")
@@ -175,7 +175,6 @@ target_desired_distance = 28.15
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 5.15
-debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
