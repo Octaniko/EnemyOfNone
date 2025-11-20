@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://1qdt460u3kds" path="res://entities/unit/unit.gd" id="1_o7ajc"]
 [ext_resource type="Texture2D" uid="uid://cqhff6g0xf6rj" path="res://entities/unit/knight.png" id="2_k673f"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nnsk1"]
-radius = 4.472136
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_k673f"]
 atlas = ExtResource("2_k673f")
 region = Rect2(0, 0, 32, 32)
@@ -159,10 +156,19 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nnsk1"]
+radius = 4.472136
+
 [node name="Unit" type="CharacterBody2D" groups=["targets", "units"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_o7ajc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8vpj5")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.865879
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nnsk1")
@@ -177,11 +183,5 @@ avoidance_enabled = true
 radius = 5.22
 debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 0, 1)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_8vpj5")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.865879
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
