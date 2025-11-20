@@ -8,11 +8,13 @@
 size = Vector2(19, 19)
 
 [node name="Player" type="CharacterBody2D" groups=["player", "targets"]]
-up_direction = Vector2(0.2195122, -0.9756098)
 script = ExtResource("1_3vyb7")
+follow_distance = 0.03
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_e5uuo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_rwgxs")
+
+[node name="FollowPoint" type="Node2D" parent="."]

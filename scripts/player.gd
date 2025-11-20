@@ -1,15 +1,19 @@
 extends CharacterBody2D
 
-@export var speed = 200
+@export var movement_speed = 200
 @onready var unit_manager: Node2D = $"../UnitManager"
+@onready var follow_point: Node2D = $FollowPoint
+
+@export var follow_distance := 60.0
 
 func _physics_process(delta):
-	var input_vector = Vector2.ZERO
-	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	var direction = Vector2.ZERO
+	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
-	if input_vector != Vector2.ZERO:
-		input_vector = input_vector.normalized() * speed
+	if direction != Vector2.ZERO:
+		direction = direction.normalized() * movement_speed
+		follow_point.position = -direction * follow_distance
 
-	velocity = input_vector
+	velocity = direction
 	move_and_slide()

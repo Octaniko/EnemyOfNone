@@ -8,7 +8,8 @@ extends CharacterBody2D
 
 func _ready() -> void:
 	call_deferred("seeker_setup")
-
+	var player = get_tree().get_nodes_in_group("player")[0]
+	target = player.get_node("FollowPoint")
 func seeker_setup():
 	await get_tree().physics_frame
 	if target:
