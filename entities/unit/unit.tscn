@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://cn0df6p1m8or6"]
+[gd_scene load_steps=27 format=3 uid="uid://cn0df6p1m8or6"]
 
 [ext_resource type="Script" uid="uid://1qdt460u3kds" path="res://entities/unit/unit.gd" id="1_o7ajc"]
 [ext_resource type="Texture2D" uid="uid://cqhff6g0xf6rj" path="res://entities/unit/knight.png" id="2_k673f"]
+[ext_resource type="Script" uid="uid://d0lr6g68pv7ak" path="res://state_machine/state_machine.gd" id="3_p0kfm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k673f"]
 atlas = ExtResource("2_k673f")
@@ -159,6 +160,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_nnsk1"]
 radius = 4.472136
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_p0kfm"]
+radius = 71.02816
+
 [node name="Unit" type="CharacterBody2D" groups=["targets", "units"]]
 collision_layer = 2
 collision_mask = 2
@@ -174,6 +178,21 @@ frame_progress = 0.865879
 shape = SubResource("CircleShape2D_nnsk1")
 
 [node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_p0kfm")
+
+[node name="Follow" type="Node" parent="StateMachine"]
+
+[node name="Rush" type="Node" parent="StateMachine"]
+
+[node name="Idle" type="Node" parent="StateMachine"]
+
+[node name="Seek" type="Node" parent="StateMachine"]
+
+[node name="Attack" type="Node" parent="StateMachine"]
+
+[node name="Attach" type="Node" parent="StateMachine"]
+
+[node name="Carry" type="Node" parent="StateMachine"]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." groups=["targets", "units"]]
 path_desired_distance = 0.1
@@ -183,5 +202,10 @@ avoidance_enabled = true
 radius = 5.22
 debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_p0kfm")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

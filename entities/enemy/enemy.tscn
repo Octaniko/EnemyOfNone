@@ -103,11 +103,11 @@ collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_dt443")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["damageable", "enemies"]]
 sprite_frames = SubResource("SpriteFrames_dt443")
 animation = &"hurt"
 autoplay = "idle"
-frame_progress = 0.40537083
+frame_progress = 0.64522433
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_3fvr7")
