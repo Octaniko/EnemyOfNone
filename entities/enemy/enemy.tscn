@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://kfgm162v1xgt"]
+[gd_scene load_steps=18 format=3 uid="uid://kfgm162v1xgt"]
 
 [ext_resource type="Script" uid="uid://cs05woliwjw83" path="res://entities/enemy/enemy.gd" id="1_dt443"]
 [ext_resource type="Texture2D" uid="uid://ddu0b40pk08ac" path="res://entities/enemy/slime_green.png" id="1_ksmh7"]
@@ -16,9 +16,13 @@ region = Rect2(0, 48, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d50e0"]
 atlas = ExtResource("1_ksmh7")
-region = Rect2(48, 48, 24, 24)
+region = Rect2(24, 48, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_61ikd"]
+atlas = ExtResource("1_ksmh7")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eaj7m"]
 atlas = ExtResource("1_ksmh7")
 region = Rect2(72, 48, 24, 24)
 
@@ -57,10 +61,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_61ikd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eaj7m")
 }],
 "loop": true,
 "name": &"hurt",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -98,9 +105,9 @@ script = ExtResource("1_dt443")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dt443")
-animation = &"attack"
+animation = &"hurt"
 autoplay = "idle"
-frame_progress = 0.843418
+frame_progress = 0.733423
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_3fvr7")

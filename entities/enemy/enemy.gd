@@ -17,16 +17,12 @@ func process_frame(delta: float) -> void:
 	state_machine.process_frame(delta)
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
-	print("Entered detection: ", body, " groups: ", body.get_groups())
 	if body.is_in_group("targets"):
 		targets.append(body)
-		print("Added to targets: ", targets)
-		
+
 func _on_detection_area_body_exited(body: Node2D) -> void:
-	print("Exited detection: ", body)
 	if body in targets:
 		targets.erase(body)
-		print("After erase, list: ", targets)
 
 func get_nearest_target() -> Node2D:
 	if targets.size() == 0:

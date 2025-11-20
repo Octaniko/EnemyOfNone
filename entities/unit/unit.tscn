@@ -170,8 +170,8 @@ shape = SubResource("CircleShape2D_nnsk1")
 [node name="StateMachine" type="Node" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." groups=["targets", "units"]]
-path_desired_distance = 5.0
-target_desired_distance = 42.6
+path_desired_distance = 0.1
+target_desired_distance = 10.45
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 5.22
