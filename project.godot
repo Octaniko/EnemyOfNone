@@ -20,6 +20,7 @@ UnitManager="*res://scripts/unit_manager.gd"
 
 [display]
 
+window/size/viewport_height=864
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
