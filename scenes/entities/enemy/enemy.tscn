@@ -1,10 +1,10 @@
 [gd_scene load_steps=18 format=3 uid="uid://kfgm162v1xgt"]
 
-[ext_resource type="Script" uid="uid://cs05woliwjw83" path="res://entities/enemy/enemy.gd" id="1_dt443"]
-[ext_resource type="Texture2D" uid="uid://ddu0b40pk08ac" path="res://entities/enemy/slime_green.png" id="1_ksmh7"]
-[ext_resource type="Script" uid="uid://bcneufwksqfqs" path="res://entities/enemy/states/enemy_idle.gd" id="2_3fvr7"]
+[ext_resource type="Script" uid="uid://cs05woliwjw83" path="res://scenes/entities/enemy/enemy.gd" id="1_dt443"]
+[ext_resource type="Texture2D" uid="uid://ddu0b40pk08ac" path="res://scenes/entities/enemy/slime_green.png" id="1_ksmh7"]
+[ext_resource type="Script" uid="uid://bcneufwksqfqs" path="res://scenes/entities/enemy/states/enemy_idle.gd" id="2_3fvr7"]
 [ext_resource type="Script" uid="uid://d0lr6g68pv7ak" path="res://state_machine/state_machine.gd" id="3_3fvr7"]
-[ext_resource type="Script" uid="uid://cbq6v6vodyt1i" path="res://entities/enemy/states/enemy_follow.gd" id="5_4wwj3"]
+[ext_resource type="Script" uid="uid://cbq6v6vodyt1i" path="res://scenes/entities/enemy/states/enemy_follow.gd" id="5_4wwj3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4wwj3"]
 atlas = ExtResource("1_ksmh7")

@@ -1,12 +1,12 @@
 [gd_scene load_steps=31 format=3 uid="uid://cn0df6p1m8or6"]
 
-[ext_resource type="Script" uid="uid://1qdt460u3kds" path="res://entities/unit/unit.gd" id="1_o7ajc"]
-[ext_resource type="Texture2D" uid="uid://cqhff6g0xf6rj" path="res://entities/unit/knight.png" id="2_k673f"]
+[ext_resource type="Script" uid="uid://1qdt460u3kds" path="res://scenes/entities/unit/unit.gd" id="1_o7ajc"]
+[ext_resource type="Texture2D" uid="uid://cqhff6g0xf6rj" path="res://scenes/entities/unit/knight.png" id="2_k673f"]
 [ext_resource type="Script" uid="uid://d0lr6g68pv7ak" path="res://state_machine/state_machine.gd" id="3_p0kfm"]
-[ext_resource type="Script" uid="uid://b1egw4egq1wg8" path="res://entities/unit/states/unit_follow.gd" id="4_h1r3i"]
-[ext_resource type="Script" uid="uid://cgl1aieouu5o7" path="res://entities/unit/states/unit_rush.gd" id="5_6v3vn"]
-[ext_resource type="Script" uid="uid://cdf8sjqwe34y2" path="res://entities/unit/states/unit_idle.gd" id="6_wi85q"]
-[ext_resource type="Script" uid="uid://cvmieijb8lknv" path="res://entities/unit/states/unit_carry.gd" id="7_wi85q"]
+[ext_resource type="Script" uid="uid://b1egw4egq1wg8" path="res://scenes/entities/unit/states/unit_follow.gd" id="4_h1r3i"]
+[ext_resource type="Script" uid="uid://cgl1aieouu5o7" path="res://scenes/entities/unit/states/unit_rush.gd" id="5_6v3vn"]
+[ext_resource type="Script" uid="uid://cdf8sjqwe34y2" path="res://scenes/entities/unit/states/unit_idle.gd" id="6_wi85q"]
+[ext_resource type="Script" uid="uid://cvmieijb8lknv" path="res://scenes/entities/unit/states/unit_carry.gd" id="7_wi85q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k673f"]
 atlas = ExtResource("2_k673f")
