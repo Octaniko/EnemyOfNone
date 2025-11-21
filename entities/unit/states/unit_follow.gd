@@ -4,8 +4,6 @@ extends State
 @export var idle_state: State = null
 @export var follow_speed := 200.0
 
-@onready var parent_animations: AnimatedSprite2D = $"../../AnimatedSprite2D"
-
 func enter() -> void:
 	move_speed = follow_speed
 	super()
@@ -25,17 +23,26 @@ func process_input(event: InputEvent) -> State:
 func process_physics(delta: float) -> State:
 	if parent and parent.has_method("get_follow_target_position"):
 		parent.navigation_agent_2d.target_position = parent.get_follow_target_position()
+	
 	if parent.navigation_agent_2d.is_navigation_finished():
 		parent.velocity = Vector2.ZERO
-		parent_animations.play("idle")
+		parent.animations.play("idle")
 		return null
 		
 	var current_agent_position = parent.global_position
 	var next_path_position = parent.navigation_agent_2d.get_next_path_position()
-	var dir = (next_path_position - current_agent_position).normalized()
+	var direction = (next_path_position - current_agent_position).normalized()
+	var new_direction = direction * move_speed
 	
-	parent.velocity = dir * move_speed
+	if parent.navigation_agent_2d.avoidance_enabled:
+		parent.navigation_agent_2d.set_velocity(new_direction)
+	else:
+		_on_navigation_agent_2d_velocity_computed(new_direction)
+	
 	parent.move_and_slide()
 	parent.animations.flip_h = parent.velocity.x < 0
 	
 	return null
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	parent.velocity = safe_velocity

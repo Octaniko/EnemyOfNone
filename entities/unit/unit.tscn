@@ -199,7 +199,7 @@ follow_state = NodePath("../Follow")
 animation_name = "idle"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." groups=["targets", "units"]]
-target_desired_distance = 20.0
+target_desired_distance = 11.1
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 5.0
@@ -211,6 +211,6 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_p0kfm")
 
-[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="StateMachine/Follow" method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
