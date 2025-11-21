@@ -1,11 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://cn0df6p1m8or6"]
+[gd_scene load_steps=28 format=3 uid="uid://cn0df6p1m8or6"]
 
 [ext_resource type="Script" uid="uid://1qdt460u3kds" path="res://entities/unit/unit.gd" id="1_o7ajc"]
 [ext_resource type="Texture2D" uid="uid://cqhff6g0xf6rj" path="res://entities/unit/knight.png" id="2_k673f"]
 [ext_resource type="Script" uid="uid://d0lr6g68pv7ak" path="res://state_machine/state_machine.gd" id="3_p0kfm"]
 [ext_resource type="Script" uid="uid://b1egw4egq1wg8" path="res://entities/unit/states/unit_follow.gd" id="4_h1r3i"]
-[ext_resource type="Script" uid="uid://cgl1aieouu5o7" path="res://entities/unit/states/unit_rush.gd" id="5_6v3vn"]
-[ext_resource type="Script" uid="uid://cdf8sjqwe34y2" path="res://entities/unit/unit_idle.gd" id="6_wi85q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k673f"]
 atlas = ExtResource("2_k673f")
@@ -170,6 +168,7 @@ radius = 71.02816
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_o7ajc")
+movement_speed = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8vpj5")
@@ -186,21 +185,25 @@ starting_state = NodePath("Follow")
 
 [node name="Follow" type="Node" parent="StateMachine"]
 script = ExtResource("4_h1r3i")
-animation_name = "move"
 
 [node name="Rush" type="Node" parent="StateMachine"]
-script = ExtResource("5_6v3vn")
-animation_name = "move"
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("6_wi85q")
-animation_name = "idle"
+
+[node name="Seek" type="Node" parent="StateMachine"]
+
+[node name="Attack" type="Node" parent="StateMachine"]
+
+[node name="Attach" type="Node" parent="StateMachine"]
+
+[node name="Carry" type="Node" parent="StateMachine"]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." groups=["targets", "units"]]
-target_desired_distance = 20.0
+path_desired_distance = 0.1
+target_desired_distance = 10.45
 path_postprocessing = 1
 avoidance_enabled = true
-radius = 5.0
+radius = 5.22
 debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 

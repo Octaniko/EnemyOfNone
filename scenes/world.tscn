@@ -1159,85 +1159,26 @@ position_smoothing_enabled = true
 [node name="UnitManager" type="Node2D" parent="."]
 script = ExtResource("1_4wyf3")
 
-[node name="Unit" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
+[node name="Unit" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(-10, 75)
-target = NodePath("../../Player")
 
-[node name="Unit2" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
+[node name="Unit2" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-30, 67)
 
-[node name="Unit3" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
+[node name="Unit3" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-17, 62)
 
-[node name="Unit4" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
+[node name="Unit4" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-31, 55)
 
-[node name="Unit5" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
+[node name="Unit5" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-45, 67)
 
-[node name="Unit6" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
+[node name="Unit6" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-33, 83)
 
-[node name="Unit7" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
-
-[node name="Unit8" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
-
-[node name="Unit9" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
-
-[node name="Unit10" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
-
-[node name="Unit11" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
-
-[node name="Unit12" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
-
-[node name="Unit13" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
-
-[node name="Unit14" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
-
-[node name="Unit15" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
-
-[node name="Unit16" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
-
-[node name="Unit17" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
-
-[node name="Unit18" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
-
-[node name="Unit19" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
-
-[node name="Unit20" parent="UnitManager" node_paths=PackedStringArray("target") instance=ExtResource("3_4wyf3")]
-position = Vector2(-10, 75)
-target = NodePath("../../Player")
+[node name="Unit7" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-15, 91)
 
 [node name="Walls" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD8/wMAAAAOAAUAAAD7/wMAAAAOAAUAAAD8/wQAAAAOAAUAAAD8/wUAAAAOAAUAAAD8/wYAAAAOAAUAAAD9/wYAAAAOAAUAAAD+/wYAAAAOAAUAAAD//wYAAAAOAAUAAAAAAAYAAAAOAAUAAAABAAYAAAAOAAUAAAACAAYAAAAOAAUAAAADAAYAAAAOAAUAAAAEAAYAAAAOAAUAAAAFAAYAAAAOAAUAAAAFAAUAAAAOAAUAAAAFAAQAAAAOAAUAAAAFAAMAAAAOAAUAAAAFAAIAAAAOAAUAAAAFAAEAAAAOAAUAAAAFAAAAAAAOAAUAAAAFAP//AAAOAAUAAAAFAP7/AAAOAAUAAAAFAP3/AAAOAAUAAAAEAP3/AAAOAAUAAAADAP3/AAAOAAUAAAACAP3/AAAOAAUAAAABAP3/AAAOAAUAAAAAAP3/AAAOAAUAAAD///3/AAAOAAUAAAD+//3/AAAOAAUAAAD9//3/AAAOAAUAAAD8//3/AAAOAAUAAAD8//7/AAAOAAUAAAD8////AAAOAAUAAAD8/wAAAAAOAAUAAAD7/wAAAAAOAAUAAAA=")

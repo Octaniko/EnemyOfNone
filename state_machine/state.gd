@@ -2,7 +2,7 @@ class_name State
 extends Node
 
 @export var animation_name: String
-@export var move_speed := 100
+@export var move_speed := 100.0
 
 var parent: CharacterBody2D
 var animations: AnimatedSprite2D
