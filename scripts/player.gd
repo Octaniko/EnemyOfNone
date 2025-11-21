@@ -1,10 +1,9 @@
 extends CharacterBody2D
 
-@export var movement_speed = 200
-@onready var unit_manager: Node2D = $"../UnitManager"
 @onready var follow_point: Node2D = $FollowPoint
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
 
+@export var movement_speed = 200
 @export var follow_distance := 60.0
 
 func _physics_process(delta):

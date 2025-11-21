@@ -14,10 +14,6 @@ config/name="1-Bit"
 run/main_scene="uid://srlmnfge160e"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
-[autoload]
-
-UnitManager="*res://scripts/unit_manager.gd"
-
 [display]
 
 window/size/viewport_height=864
@@ -26,6 +22,18 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "red",
+"res://assets/": "pink",
+"res://entities/": "orange",
+"res://scenes/": "purple",
+"res://scripts/": "yellow",
+"res://shaders/": "blue",
+"res://state_machine/": "green"
+}
 
 [global_group]
 
