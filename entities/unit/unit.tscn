@@ -173,9 +173,8 @@ script = ExtResource("1_o7ajc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8vpj5")
-animation = &"idle"
+animation = &"move"
 autoplay = "idle"
-frame_progress = 0.865879
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nnsk1")
@@ -184,16 +183,19 @@ shape = SubResource("CircleShape2D_nnsk1")
 script = ExtResource("3_p0kfm")
 starting_state = NodePath("Follow")
 
-[node name="Follow" type="Node" parent="StateMachine"]
+[node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("rush_state", "idle_state")]
 script = ExtResource("4_h1r3i")
+rush_state = NodePath("../Rush")
+idle_state = NodePath("../Idle")
 animation_name = "move"
 
 [node name="Rush" type="Node" parent="StateMachine"]
 script = ExtResource("5_6v3vn")
 animation_name = "move"
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("follow_state")]
 script = ExtResource("6_wi85q")
+follow_state = NodePath("../Follow")
 animation_name = "idle"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." groups=["targets", "units"]]

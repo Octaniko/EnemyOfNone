@@ -1180,6 +1180,45 @@ position = Vector2(-33, 83)
 [node name="Unit7" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(-15, 91)
 
+[node name="Unit8" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-73, 76)
+
+[node name="Unit9" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-77, 98)
+
+[node name="Unit10" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-47, 121)
+
+[node name="Unit11" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(140, 127)
+
+[node name="Unit12" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(120, 119)
+
+[node name="Unit13" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(133, 114)
+
+[node name="Unit14" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(119, 107)
+
+[node name="Unit15" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(105, 119)
+
+[node name="Unit16" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(117, 135)
+
+[node name="Unit17" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(135, 143)
+
+[node name="Unit18" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(77, 128)
+
+[node name="Unit19" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(73, 150)
+
+[node name="Unit20" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(103, 173)
+
 [node name="Walls" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD8/wMAAAAOAAUAAAD7/wMAAAAOAAUAAAD8/wQAAAAOAAUAAAD8/wUAAAAOAAUAAAD8/wYAAAAOAAUAAAD9/wYAAAAOAAUAAAD+/wYAAAAOAAUAAAD//wYAAAAOAAUAAAAAAAYAAAAOAAUAAAABAAYAAAAOAAUAAAACAAYAAAAOAAUAAAADAAYAAAAOAAUAAAAEAAYAAAAOAAUAAAAFAAYAAAAOAAUAAAAFAAUAAAAOAAUAAAAFAAQAAAAOAAUAAAAFAAMAAAAOAAUAAAAFAAIAAAAOAAUAAAAFAAEAAAAOAAUAAAAFAAAAAAAOAAUAAAAFAP//AAAOAAUAAAAFAP7/AAAOAAUAAAAFAP3/AAAOAAUAAAAEAP3/AAAOAAUAAAADAP3/AAAOAAUAAAACAP3/AAAOAAUAAAABAP3/AAAOAAUAAAAAAP3/AAAOAAUAAAD///3/AAAOAAUAAAD+//3/AAAOAAUAAAD9//3/AAAOAAUAAAD8//3/AAAOAAUAAAD8//7/AAAOAAUAAAD8////AAAOAAUAAAD8/wAAAAAOAAUAAAD7/wAAAAAOAAUAAAA=")
 tile_set = SubResource("TileSet_71j4m")

@@ -62,7 +62,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" groups=["player", "targets"]]
 script = ExtResource("1_3vyb7")
-follow_distance = 0.3
+follow_distance = 0.1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -10)
