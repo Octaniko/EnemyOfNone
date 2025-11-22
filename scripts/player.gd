@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var follow_point: Node2D = $FollowPoint
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
+@onready var cursor: Sprite2D = $Cursor
 
 @export var move_speed = 200
 @export var follow_distance := 60.0
@@ -14,6 +15,7 @@ func _physics_process(delta):
 	if direction != Vector2.ZERO:
 		direction = direction.normalized() * move_speed
 		follow_point.position = -direction * follow_distance
+		cursor.position = direction * follow_distance
 	if direction > Vector2.ZERO:
 		animations.flip_h = false
 	elif direction < Vector2.ZERO:
