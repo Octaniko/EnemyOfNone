@@ -4,8 +4,6 @@ extends State
 @export var follow_state: State = null
 @export var search_time := 0.12
 
-var idle_timer := 0.0
-
 func enter() -> void:
 	super()
 	animations.play(animation_name)

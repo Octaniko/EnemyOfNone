@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var movement_speed := 200.0
-@export var rush_distance := 50.0
+@export var rush_distance := 200.0
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D

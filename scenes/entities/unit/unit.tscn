@@ -190,8 +190,10 @@ rush_state = NodePath("../Rush")
 idle_state = NodePath("../Idle")
 animation_name = "move"
 
-[node name="Rush" type="Node" parent="StateMachine"]
+[node name="Rush" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "follow_state")]
 script = ExtResource("5_6v3vn")
+idle_state = NodePath("../Idle")
+follow_state = NodePath("../Follow")
 animation_name = "move"
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("follow_state")]
