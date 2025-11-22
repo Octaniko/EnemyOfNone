@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @export var movement_speed := 200.0
-@export var rush_distance := 200.0
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
@@ -49,9 +48,3 @@ func get_nearest_interactable() -> Node2D:
 			minimal_distance = distance
 			nearest = item
 	return nearest
-
-func get_follow_target_position() -> Vector2:
-	return follow_point.global_position
-
-func get_rush_target_point() -> Vector2:
-	return global_position + last_player_input * rush_distance
