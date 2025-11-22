@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://srlmnfge160e"]
+[gd_scene load_steps=20 format=4 uid="uid://srlmnfge160e"]
 
 [ext_resource type="Shader" uid="uid://c7hqetjmaq3p4" path="res://assets/shaders/chromatic_aberration.gdshader" id="1_i7141"]
 [ext_resource type="Texture2D" uid="uid://bu0yc0bvbrptw" path="res://assets/sprites/monochrome-transparent_packed.png" id="1_k0juu"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cn0df6p1m8or6" path="res://scenes/entities/unit/unit.tscn" id="3_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://cl1oh7qlfhj1m" path="res://scenes/entities/player/player.tscn" id="3_k0juu"]
 [ext_resource type="PackedScene" uid="uid://kfgm162v1xgt" path="res://scenes/entities/enemy/enemy.tscn" id="6_qfnet"]
+[ext_resource type="Script" uid="uid://b71wx1uy37pyh" path="res://scenes/entities/unit/unit_manager.gd" id="6_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://d0uns3g334aex" path="res://scenes/objects/carryable.tscn" id="8_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bnhyx32kowh77" path="res://scenes/objects/base.tscn" id="9_7r4gi"]
 
@@ -1191,66 +1192,67 @@ position = Vector2(50, -11)
 zoom = Vector2(2.92, 2.92)
 position_smoothing_enabled = true
 
-[node name="UnitContainer" type="Node2D" parent="."]
+[node name="UnitManager" type="Node" parent="."]
+script = ExtResource("6_w7kh3")
 
-[node name="Unit" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(-10, 75)
 
-[node name="Unit2" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit2" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(-30, 67)
 
-[node name="Unit3" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit3" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(-17, 62)
 
-[node name="Unit4" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit4" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(-31, 55)
 
-[node name="Unit5" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit5" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(-45, 67)
 
-[node name="Unit6" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit6" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(-33, 83)
 
-[node name="Unit7" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit7" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(-15, 91)
 
-[node name="Unit8" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit8" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(-73, 76)
 
-[node name="Unit9" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit9" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(-77, 98)
 
-[node name="Unit10" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit10" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(-47, 121)
 
-[node name="Unit11" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit11" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(140, 127)
 
-[node name="Unit12" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit12" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(120, 119)
 
-[node name="Unit13" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit13" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(133, 114)
 
-[node name="Unit14" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit14" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(119, 107)
 
-[node name="Unit15" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit15" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(105, 119)
 
-[node name="Unit16" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit16" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(117, 135)
 
-[node name="Unit17" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit17" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(135, 143)
 
-[node name="Unit18" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit18" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(77, 128)
 
-[node name="Unit19" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit19" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(73, 150)
 
-[node name="Unit20" parent="UnitContainer" instance=ExtResource("3_4wyf3")]
+[node name="Unit20" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(103, 173)
 
 [node name="Walls" type="TileMapLayer" parent="."]

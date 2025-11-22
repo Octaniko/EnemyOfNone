@@ -29,8 +29,7 @@ folder_colors={
 "res://addons/": "red",
 "res://assets/": "pink",
 "res://scenes/": "purple",
-"res://scripts/": "yellow",
-"res://state_machine/": "green"
+"res://scripts/": "yellow"
 }
 
 [global_group]
