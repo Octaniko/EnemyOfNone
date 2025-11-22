@@ -40,7 +40,7 @@ targets="Targets for enemies."
 interactable="Obects that can be interacted with by units."
 enemies="Enemies."
 damageable="Can be damaged."
-carriable="Objects that can be carried to the base by units."
+carryable="Objects that can be carried to the base by units."
 
 [input]
 
