@@ -1,5 +1,6 @@
 # todo: make so only one rushes
 # todo: figure out why recall doesn't get everyone sometimes
+# todo: they need to rush forward and stop if there's an obstacle, not go behind walls
 extends State
 
 @export var idle_state: State = null

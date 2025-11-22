@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cn0df6p1m8or6" path="res://scenes/entities/unit/unit.tscn" id="3_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://cl1oh7qlfhj1m" path="res://scenes/entities/player/player.tscn" id="3_k0juu"]
 [ext_resource type="PackedScene" uid="uid://kfgm162v1xgt" path="res://scenes/entities/enemy/enemy.tscn" id="6_qfnet"]
-[ext_resource type="Script" uid="uid://b71wx1uy37pyh" path="res://scenes/entities/unit/unit_manager.gd" id="6_w7kh3"]
+[ext_resource type="Script" uid="uid://dkl042to8ysey" path="res://scenes/entities/unit/unit_manager.gd" id="6_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://d0uns3g334aex" path="res://scenes/objects/carryable.tscn" id="8_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bnhyx32kowh77" path="res://scenes/objects/base.tscn" id="9_7r4gi"]
 
@@ -1189,7 +1189,7 @@ script = ExtResource("2_71j4m")
 position = Vector2(50, -11)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2.92, 2.92)
+zoom = Vector2(3.985, 3.985)
 position_smoothing_enabled = true
 
 [node name="UnitManager" type="Node" parent="."]

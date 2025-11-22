@@ -8,16 +8,12 @@ func enter() -> void:
 	move_speed = follow_speed
 	super()
 	animations.play(animation_name)
-	parent.set_meta("dismissed", false)
 	if parent.has_method("get_follow_target_position"):
 		parent.navigation_agent_2d.target_position = parent.get_follow_target_position()
 
 func process_input(event: InputEvent) -> State:
 	if event.is_action_pressed("rush"):
 		return rush_state
-	if event.is_action_pressed("dismiss"):
-		parent.set_meta("dismissed", true)
-		return idle_state
 	return null
 
 func process_physics(delta: float) -> State:
