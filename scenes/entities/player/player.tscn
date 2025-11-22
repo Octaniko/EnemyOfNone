@@ -59,13 +59,14 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e5uuo"]
+radius = 8.0
 
 [node name="Player" type="CharacterBody2D" groups=["player", "targets"]]
 script = ExtResource("1_3vyb7")
 follow_distance = 0.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -10)
+position = Vector2(0, -7)
 scale = Vector2(1.7083334, 1.7083334)
 sprite_frames = SubResource("SpriteFrames_bectd")
 animation = &"idle"

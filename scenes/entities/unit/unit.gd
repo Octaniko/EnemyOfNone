@@ -17,6 +17,7 @@ func _ready() -> void:
 	player = get_tree().get_nodes_in_group("player")[0]
 	follow_point = player.get_node("FollowPoint")
 	state_machine.init(self, animations)
+	state_machine.get_node("Follow").set_follow_target(follow_point)
 
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
@@ -36,14 +37,6 @@ func _process_player_input(event: InputEvent) -> void:
 		)
 		if direction != Vector2.ZERO:
 			last_player_input = direction.normalized()
-
-func _on_detection_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("interactable"):
-		interactables.append(body)
-
-func _on_detection_area_body_exited(body: Node2D) -> void:
-	if body.is_in_group("interactable"):
-		interactables.erase(body)
 
 func get_nearest_interactable() -> Node2D:
 	if interactables.size() == 0:

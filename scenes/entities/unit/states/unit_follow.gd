@@ -43,7 +43,6 @@ func process_physics(delta: float) -> State:
 	if parent.navigation_agent_2d.is_navigation_finished():
 		return idle_state
 	
-	
 	var current_position = parent.global_position
 	var next_path_position = parent.navigation_agent_2d.get_next_path_position()
 	var direction = (next_path_position - current_position).normalized()

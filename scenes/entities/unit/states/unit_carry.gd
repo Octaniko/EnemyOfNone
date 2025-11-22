@@ -3,7 +3,6 @@ extends State
 
 @export var idle_state: State = null
 @export var follow_state: State = null
-@export var seek_state: State = null
 @export var carry_speed := 100
 @export var delivery_tolerance := 16.0
 #@export var post_carry_check_delay := 0.1
@@ -52,7 +51,7 @@ func process_physics(delta: float) -> State:
 		var t = parent.get_nearest_interactable()
 		if t: 
 			print("[Carry] after delivery: found interactable:", t)
-			return seek_state
+			return follow_state
 		else:
 			print("[Carry] after delivery: no interactable nearby, go [Follow]")
 			return follow_state

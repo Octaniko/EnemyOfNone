@@ -15,17 +15,17 @@ func process_physics(delta: float) -> State:
 	var pos = parent.global_position
 	var to_target = rush_target - pos
 	var dist = to_target.length()
-
+	
 	if dist <= ARRIVAL_TOLERANCE:
 		return idle_state
-
+	
 	var dir = to_target.normalized()
 	var velocity = dir * rush_speed
-
+	
 	var collision = parent.move_and_collide(velocity * delta)
 	if collision:
 		return idle_state
-
+	
 	parent.animations.flip_h = dir.x < 0
-
+	
 	return null

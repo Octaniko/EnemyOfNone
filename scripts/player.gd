@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var follow_point: Node2D = $FollowPoint
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
 
-@export var movement_speed = 200
+@export var move_speed = 200
 @export var follow_distance := 60.0
 
 func _physics_process(delta):
@@ -12,7 +12,7 @@ func _physics_process(delta):
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	
 	if direction != Vector2.ZERO:
-		direction = direction.normalized() * movement_speed
+		direction = direction.normalized() * move_speed
 		follow_point.position = -direction * follow_distance
 	if direction > Vector2.ZERO:
 		animations.flip_h = false
