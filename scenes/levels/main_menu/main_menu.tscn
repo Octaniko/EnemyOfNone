@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxw7qtua04j2n"]
+
+[ext_resource type="Shader" uid="uid://dptgn8t6jmiik" path="res://assets/shaders/dithering.gdshader" id="2_ob46e"]
+[ext_resource type="VideoStream" uid="uid://cx56xwvk4qpul" path="res://assets/images/RuinAnimated0001-0025 (1).ogv" id="3_d6m5w"]
+[ext_resource type="Script" uid="uid://1w6i0axq4qb8" path="res://scenes/levels/main_menu/main_menu.gd" id="3_ob46e"]
+[ext_resource type="VideoStream" uid="uid://dxro8v3ijegcl" path="res://assets/images/RuinStandFIX.ogv" id="3_vesay"]
+[ext_resource type="Theme" uid="uid://4m7a8n1anu0j" path="res://assets/themes/main_menu.tres" id="4_hkpjj"]
+[ext_resource type="Shader" uid="uid://q3w8b3i4m26u" path="res://assets/shaders/vhs.gdshader" id="4_uwqft"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hkpjj"]
+shader = ExtResource("4_uwqft")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.0030000001425
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.00900004792750008
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.302000014345
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.0
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uqeha"]
+shader = ExtResource("2_ob46e")
+shader_parameter/color_dark = Color(0, 0, 0, 1)
+shader_parameter/color_light = Color(1, 1, 1, 1)
+shader_parameter/dither_repeat = 1.0
+shader_parameter/dither_strength = 1.0
+shader_parameter/min_dither_brightness = 0.1
+shader_parameter/bayer_mode = 4
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("3_ob46e")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Loop" type="VideoStreamPlayer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 1440.0
+offset_bottom = 1080.0
+stream = ExtResource("3_vesay")
+autoplay = true
+expand = true
+loop = true
+
+[node name="Intro" type="VideoStreamPlayer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 1440.0
+offset_bottom = 1080.0
+stream = ExtResource("3_d6m5w")
+autoplay = true
+expand = true
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
+position = Vector2(720, 540)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -364.875
+offset_top = -266.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 3
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_hkpjj")
+theme_override_font_sizes/font_size = 61
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_hkpjj")
+theme_override_font_sizes/font_size = 61
+text = "Quit"
+
+[node name="VHS" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_hkpjj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_uqeha")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="finished" from="CanvasLayer/Control/Intro" to="." method="_on_intro_finished"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

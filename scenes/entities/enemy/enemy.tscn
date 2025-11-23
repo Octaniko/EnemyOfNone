@@ -98,7 +98,7 @@ radius = 4.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_721x4"]
 radius = 18.027756
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["damageable", "enemies"]]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_dt443")
