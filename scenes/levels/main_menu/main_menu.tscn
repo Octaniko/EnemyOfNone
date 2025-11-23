@@ -99,6 +99,7 @@ theme_override_font_sizes/font_size = 61
 text = "Quit"
 
 [node name="VHS" type="ColorRect" parent="CanvasLayer"]
+visible = false
 material = SubResource("ShaderMaterial_hkpjj")
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,8 +108,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
+[node name="Dithering" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_uqeha")
 anchors_preset = 15
 anchor_right = 1.0
