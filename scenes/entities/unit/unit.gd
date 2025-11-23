@@ -25,7 +25,15 @@ func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
 
 func _input(event: InputEvent) -> void:
-	state_machine.process_input(event)
+	var new_state = state_machine.current_state.process_input(event)
+	if new_state:
+		state_machine.change_state(new_state)
+		return
+	
+	if event.is_action_pressed("recall"):
+		var follow_state = state_machine.get_node("Follow")
+		state_machine.change_state(follow_state)
+		return
 	_process_player_input(event)
 
 func _process_player_input(event: InputEvent) -> void:
