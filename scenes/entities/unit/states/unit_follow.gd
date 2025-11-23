@@ -17,8 +17,8 @@ func set_follow_point(point: Vector2) -> void:
 	follow_target_point = point
 
 func enter() -> void:
-	move_speed = follow_speed
 	super()
+	move_speed = follow_speed
 	animations.play(animation_name)
 	_update_navigation_target()
 

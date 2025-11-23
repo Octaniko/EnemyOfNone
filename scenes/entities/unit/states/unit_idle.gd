@@ -27,13 +27,11 @@ func _on_detection_area_body_entered(body: Node2D) -> State:
 	if parent.state_machine.current_state != self:
 		return null
 	if body.is_in_group("interactable"):
-		if body.is_in_group("carryable") or body.is_in_group("enemies"):
 			attach_state.set_target(body)
-			return attach_state
+			parent.state_machine.change_state(attach_state)
+			return null
 	return null
 
 func _on_detection_area_body_exited(body: Node2D):
 	if parent.state_machine.current_state != self:
 		return
-	if body.is_in_group("interactable"):
-		print("[Idle] body left detection area:", body)

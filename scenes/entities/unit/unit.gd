@@ -35,7 +35,6 @@ func _input(event: InputEvent) -> void:
 		state_machine.change_state(follow_state)
 		return
 	_process_player_input(event)
-	state_machine.process_input(event)
 
 func _process_player_input(event: InputEvent) -> void:
 	if event is InputEvent and event.is_pressed():
@@ -49,7 +48,12 @@ func _process_player_input(event: InputEvent) -> void:
 func get_state_name() -> String:
 	return state_machine.current_state.name
 
-func on_detach_exras(carryable: Node) -> void:
+func on_attach_approved(carryable: Node) -> void:
+	var attach_state = state_machine.get_node("Attach")
+	attach_state.set_target(carryable)
+	state_machine.change_state(attach_state)
+
+func on_detach_exra(carryable: Node) -> void:
 	if state_machine.current_state.has_method("exit"):
 		state_machine.current_state.exit()
 	var follow_state = state_machine.get_node("Follow")

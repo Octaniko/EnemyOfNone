@@ -2417,8 +2417,6 @@ position = Vector2(46, 64)
 
 [node name="Carryable2" parent="CarryableContainer" instance=ExtResource("8_4mrxx")]
 position = Vector2(-167, 170)
-base_node_path = NodePath("../../Base")
 
 [node name="Carryable" parent="CarryableContainer" instance=ExtResource("8_4mrxx")]
 position = Vector2(-202, 116)
-base_node_path = NodePath("../../Base")
