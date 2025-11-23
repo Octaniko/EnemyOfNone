@@ -27,6 +27,6 @@ func _process(delta: float) -> void:
 	seconds_label.text = "%02d." % seconds
 	milliseconds_label.text = "%03d" % milliseconds
 
-func _on_all_coins_connected():
+func _on_all_interactables_connected():
 	var level_name = get_tree().current_scene.name
 	emit_signal("time_sent", elapsed_time)

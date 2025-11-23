@@ -15,7 +15,7 @@ func _ready() -> void:
 	call_deferred("_emit_initial_update")
 
 func _emit_initial_update() -> void:
-	Global.emit_signal("interactable_updated", interactables_collected, interactables_total)
+	Global.emit_signal("interactables_updated", interactables_collected, interactables_total)
 
 	if interactables_collected == interactables_total:
 		Global.emit_signal("all_interactables_collected")
@@ -26,7 +26,7 @@ func _emit_initial_update() -> void:
 func _on_interactable_collected() -> void:
 	interactables_collected += 1
 
-	Global.emit_signal("interactable_updated", interactables_collected, interactables_total)
+	Global.emit_signal("interactables_updated", interactables_collected, interactables_total)
 
 	if interactables_collected == interactables_total:
 		Global.emit_signal("all_interactables_collected")

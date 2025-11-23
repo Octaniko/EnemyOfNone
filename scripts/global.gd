@@ -1,7 +1,7 @@
 extends Node
 
 signal interactable_collected
-signal interactable_updated
+signal interactables_updated(interactables_collected, interactables_total)
 signal all_interactables_collected
 
 func back_to_menu():
