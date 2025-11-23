@@ -12,10 +12,6 @@ func enter() -> void:
 	animations.play(animation_name)
 	parent.navigation_agent_2d.target_position = parent.global_position
 	timer = 0.0
-	detection_area.monitoring = true
-
-func exit():
-	detection_area.monitoring = false
 
 func process_frame(delta: float) -> State:
 	parent.velocity = Vector2.ZERO

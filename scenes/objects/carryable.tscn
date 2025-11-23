@@ -1,17 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0uns3g334aex"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kibfx"]
+radius = 11.045361
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_1feky"]
 radius = 25.179358
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1feky"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kibfx"]
-radius = 11.0
+[node name="Carryable" type="CharacterBody2D" groups=["carryable", "interactable"]]
 
-[node name="Carryable" type="Node2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kibfx")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_mask = 3
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_1feky")
@@ -27,9 +31,3 @@ offset_right = 20.0
 offset_bottom = -9.0
 text = "0/2"
 horizontal_alignment = 1
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("CircleShape2D_kibfx")

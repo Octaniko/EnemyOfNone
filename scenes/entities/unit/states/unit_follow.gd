@@ -41,7 +41,9 @@ func process_physics(delta: float) -> State:
 	parent.navigation_agent_2d.target_position = target
 	
 	if parent.navigation_agent_2d.is_navigation_finished():
-		return idle_state
+		parent.animations.play("idle")
+	else:
+		animations.play(animation_name)
 	
 	var current_position = parent.global_position
 	var next_path_position = parent.navigation_agent_2d.get_next_path_position()

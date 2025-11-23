@@ -1,6 +1,7 @@
 extends State
 
 @export var idle_state: State = null
+@export var attach_state: State = null
 @export var rush_speed: float = 400.0
 const ARRIVAL_TOLERANCE := 4.0
 
@@ -29,3 +30,22 @@ func process_physics(delta: float) -> State:
 	parent.animations.flip_h = dir.x < 0
 	
 	return null
+
+
+func _on_detection_area_body_entered(body: Node2D) -> State:
+	if parent.state_machine.current_state != self:
+		return null
+	if body.is_in_group("interactable"):
+		if body.is_in_group("carryable"):
+			print("Body is carryable")
+			return attach_state
+		elif body.is_in_group("enemies"):
+			return attach_state
+	return null
+
+
+func _on_detection_area_body_exited(body: Node2D):
+	if parent.state_machine.current_state != self:
+		return null
+	if body.is_in_group("interactable"):
+		print("Body left")

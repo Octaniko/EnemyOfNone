@@ -1330,7 +1330,7 @@ scale = Vector2(3.416035, 3.416035)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qfnet")
 
-[node name="Carryable" parent="." groups=["carryable", "interactable"] instance=ExtResource("8_4mrxx")]
+[node name="Carryable" parent="." instance=ExtResource("8_4mrxx")]
 position = Vector2(-163, 130)
 
 [node name="Base" parent="." instance=ExtResource("9_7r4gi")]
