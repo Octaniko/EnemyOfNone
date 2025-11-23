@@ -2386,6 +2386,36 @@ position = Vector2(-10, 75)
 [node name="Unit2" parent="UnitManager" instance=ExtResource("3_4wyf3")]
 position = Vector2(-30, 67)
 
+[node name="Unit11" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-10, 75)
+
+[node name="Unit12" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-10, 75)
+
+[node name="Unit13" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-10, 75)
+
+[node name="Unit14" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-10, 75)
+
+[node name="Unit15" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-10, 75)
+
+[node name="Unit16" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-10, 75)
+
+[node name="Unit17" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-10, 75)
+
+[node name="Unit18" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-10, 75)
+
+[node name="Unit19" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-10, 75)
+
+[node name="Unit20" parent="UnitManager" instance=ExtResource("3_4wyf3")]
+position = Vector2(-30, 67)
+
 [node name="EnemyContainer" type="Node" parent="."]
 
 [node name="Enemy" parent="EnemyContainer" instance=ExtResource("6_qfnet")]

@@ -6,16 +6,16 @@ class_name UnitAttach
 @export var follow_speed: float = 200.0
 
 var attach_target: Node2D = null
-var is_approved := false
+
 
 func set_target(body: Node2D) -> void:
 	attach_target = body
-	is_approved = false
+
 
 func enter():
 	super()
 	animations.play(animation_name)
-	is_approved = true
+
 	_update_navigation_target()
 
 func _update_navigation_target() -> void:
@@ -25,9 +25,7 @@ func _update_navigation_target() -> void:
 	parent.navigation_agent_2d.target_position = target_pos
 
 func process_physics(delta: float) -> State:
-	if not is_approved:
-		return follow_state
-	
+
 	if not attach_target or not is_instance_valid(attach_target):
 		return idle_state
 
@@ -57,4 +55,3 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 
 func exit() -> void:
 	attach_target = null
-	is_approved = false
