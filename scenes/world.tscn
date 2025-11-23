@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=4 uid="uid://srlmnfge160e"]
+[gd_scene load_steps=22 format=4 uid="uid://srlmnfge160e"]
 
 [ext_resource type="Shader" uid="uid://c7hqetjmaq3p4" path="res://assets/shaders/chromatic_aberration.gdshader" id="1_i7141"]
 [ext_resource type="Texture2D" uid="uid://bu0yc0bvbrptw" path="res://assets/sprites/monochrome-transparent_packed.png" id="1_k0juu"]
 [ext_resource type="Shader" uid="uid://tghd0mr4lhnn" path="res://assets/shaders/vignette.gdshader" id="2_4mrxx"]
 [ext_resource type="Script" uid="uid://b1n2c65ro48n8" path="res://scripts/floor.gd" id="2_71j4m"]
 [ext_resource type="PackedScene" uid="uid://cn0df6p1m8or6" path="res://scenes/entities/unit/unit.tscn" id="3_4wyf3"]
+[ext_resource type="Shader" uid="uid://q3w8b3i4m26u" path="res://assets/shaders/vhs.gdshader" id="3_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://cl1oh7qlfhj1m" path="res://scenes/entities/player/player.tscn" id="3_k0juu"]
 [ext_resource type="PackedScene" uid="uid://kfgm162v1xgt" path="res://scenes/entities/enemy/enemy.tscn" id="6_qfnet"]
 [ext_resource type="Script" uid="uid://dkl042to8ysey" path="res://scenes/entities/unit/unit_manager.gd" id="6_w7kh3"]
@@ -24,6 +25,30 @@ shader_parameter/radius = 0.42000001995
 shader_parameter/softness = 0.67200003192
 shader_parameter/intensity = 0.7810000370975
 shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q5onr"]
+shader = ExtResource("3_e3hyu")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.0030000001425
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.009000047927500088
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.302000014345
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.0
+shader_parameter/vignette_opacity = 0.5
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qfnet"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -1165,6 +1190,7 @@ glow_bloom = 0.45
 [node name="ShaderOverlay" type="CanvasLayer" parent="."]
 
 [node name="ChromaticAberration" type="ColorRect" parent="ShaderOverlay"]
+visible = false
 material = SubResource("ShaderMaterial_i7141")
 anchors_preset = 15
 anchor_right = 1.0
@@ -1173,7 +1199,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Vignette" type="ColorRect" parent="ShaderOverlay"]
+visible = false
 material = SubResource("ShaderMaterial_4mrxx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VHS" type="ColorRect" parent="ShaderOverlay"]
+material = SubResource("ShaderMaterial_q5onr")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
