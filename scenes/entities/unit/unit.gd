@@ -35,6 +35,7 @@ func _input(event: InputEvent) -> void:
 		state_machine.change_state(follow_state)
 		return
 	_process_player_input(event)
+	state_machine.process_input(event)
 
 func _process_player_input(event: InputEvent) -> void:
 	if event is InputEvent and event.is_pressed():
@@ -45,14 +46,11 @@ func _process_player_input(event: InputEvent) -> void:
 		if direction != Vector2.ZERO:
 			last_player_input = direction.normalized()
 
-func get_nearest_interactable() -> Node2D:
-	if interactables.size() == 0:
-		return null
-	var nearest = interactables[0]
-	var minimal_distance = global_position.distance_to(nearest.global_position)
-	for item in interactables:
-		var distance = global_position.distance_to(item.global_position)
-		if distance < minimal_distance:
-			minimal_distance = distance
-			nearest = item
-	return nearest
+func get_state_name() -> String:
+	return state_machine.current_state.name
+
+func on_detach_exras(carryable: Node) -> void:
+	if state_machine.current_state.has_method("exit"):
+		state_machine.current_state.exit()
+	var follow_state = state_machine.get_node("Follow")
+	state_machine.change_state(follow_state)

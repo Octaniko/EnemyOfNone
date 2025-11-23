@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cn0df6p1m8or6"]
+[gd_scene load_steps=25 format=3 uid="uid://cn0df6p1m8or6"]
 
 [ext_resource type="Script" uid="uid://1qdt460u3kds" path="res://scenes/entities/unit/unit.gd" id="1_o7ajc"]
 [ext_resource type="Texture2D" uid="uid://ild172fbqx74" path="res://scenes/entities/unit/unit-Sheet.png" id="2_jxw44"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://b1egw4egq1wg8" path="res://scenes/entities/unit/states/unit_follow.gd" id="4_h1r3i"]
 [ext_resource type="Script" uid="uid://cgl1aieouu5o7" path="res://scenes/entities/unit/states/unit_rush.gd" id="5_6v3vn"]
 [ext_resource type="Script" uid="uid://cdf8sjqwe34y2" path="res://scenes/entities/unit/states/unit_idle.gd" id="6_wi85q"]
-[ext_resource type="Script" uid="uid://cvmieijb8lknv" path="res://scenes/entities/unit/states/unit_carry.gd" id="7_wi85q"]
 [ext_resource type="Script" uid="uid://dbsx0lql6561h" path="res://scenes/entities/unit/unit_attach.gd" id="8_jxw44"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bbfwi"]
@@ -167,12 +166,6 @@ script = ExtResource("6_wi85q")
 follow_state = NodePath("../Follow")
 attach_state = NodePath("../Attach")
 animation_name = "idle"
-
-[node name="Carry" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "follow_state")]
-script = ExtResource("7_wi85q")
-idle_state = NodePath("../Idle")
-follow_state = NodePath("../Follow")
-animation_name = "move"
 
 [node name="Attach" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("8_jxw44")

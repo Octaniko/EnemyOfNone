@@ -27,7 +27,7 @@ shape = SubResource("CircleShape2D_1feky")
 scale = Vector2(22.075, 22.075)
 texture = SubResource("PlaceholderTexture2D_1feky")
 
-[node name="Label" type="Label" parent="."]
+[node name="CountLabel" type="Label" parent="."]
 offset_left = -20.0
 offset_top = -32.0
 offset_right = 20.0
