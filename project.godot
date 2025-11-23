@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="1-Bit"
-run/main_scene="uid://srlmnfge160e"
+run/main_scene="uid://dxw7qtua04j2n"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
 [display]

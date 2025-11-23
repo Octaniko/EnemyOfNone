@@ -185,5 +185,6 @@ debug_path_custom_color = Color(1, 0, 0, 1)
 shape = SubResource("CircleShape2D_p0kfm")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="StateMachine/Follow" method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="body_entered" from="DetectionArea" to="StateMachine/Rush" method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="StateMachine/Idle" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="StateMachine/Idle" method="_on_detection_area_body_exited"]

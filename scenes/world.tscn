@@ -1217,6 +1217,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Dithering" type="ColorRect" parent="ShaderOverlay"]
+visible = false
 material = SubResource("ShaderMaterial_jhx03")
 anchors_preset = 15
 anchor_right = 1.0
