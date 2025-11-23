@@ -53,7 +53,7 @@ func on_attach_approved(carryable: Node) -> void:
 	attach_state.set_target(carryable)
 	state_machine.change_state(attach_state)
 
-func on_detach_exra(carryable: Node) -> void:
+func on_detach_extra(carryable: Node) -> void:
 	if state_machine.current_state.has_method("exit"):
 		state_machine.current_state.exit()
 	var follow_state = state_machine.get_node("Follow")

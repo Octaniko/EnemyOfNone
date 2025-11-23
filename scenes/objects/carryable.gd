@@ -37,7 +37,7 @@ func _on_body_exited(body: Node2D) -> void:
 	_check_units_count()
 
 func _check_units_count() -> void:
-	var free_slots = required_units
+	var free_slots = required_units - approved_units.size()
 	for unit in units_in_area:
 		if free_slots <= 0:
 			break
@@ -50,7 +50,7 @@ func _check_units_count() -> void:
 	for unit in units_in_area:
 		if not approved_units.has(unit):
 			if unit.has_method("on_detach_extra"):
-				unit.on_detach_extra()
+				unit.on_detach_extra(self)
 	
 	if units_in_area.size() >= required_units:
 		_start_move_to_base()
