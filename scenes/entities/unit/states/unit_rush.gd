@@ -1,4 +1,5 @@
 extends State
+class_name UnitRush
 
 @export var idle_state: State = null
 @export var attach_state: State = null
@@ -31,21 +32,17 @@ func process_physics(delta: float) -> State:
 	
 	return null
 
-
 func _on_detection_area_body_entered(body: Node2D) -> State:
 	if parent.state_machine.current_state != self:
 		return null
 	if body.is_in_group("interactable"):
-		if body.is_in_group("carryable"):
-			print("Body is carryable")
-			return attach_state
-		elif body.is_in_group("enemies"):
-			return attach_state
+			attach_state.set_target(body)
+			parent.state_machine.change_state(attach_state)
+			return null
 	return null
-
 
 func _on_detection_area_body_exited(body: Node2D):
 	if parent.state_machine.current_state != self:
-		return null
+		return
 	if body.is_in_group("interactable"):
-		print("Body left")
+		print("[Rush] body left detection area:", body)

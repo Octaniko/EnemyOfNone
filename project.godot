@@ -93,8 +93,12 @@ recall={
 
 [layer_names]
 
-2d_physics/layer_1="Environment"
-2d_physics/layer_2="Entities"
+2d_physics/layer_1="World"
+2d_physics/layer_2="Unit"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Player"
+2d_physics/layer_5="UnitDetection"
+2d_physics/layer_6="ObjectDetection"
 
 [rendering]
 

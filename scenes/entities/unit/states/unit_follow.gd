@@ -1,4 +1,5 @@
 extends State
+class_name UnitFollow
 
 @export var rush_state: State = null
 @export var idle_state: State = null
