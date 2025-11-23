@@ -6,11 +6,14 @@ class_name UnitAttach
 @export var follow_speed: float = 200.0
 
 var attach_target: Node2D = null
+var is_approved := false
 
 func set_target(body: Node2D) -> void:
 	attach_target = body
+	is_approved = false
 
 func enter() -> void:
+	super()
 	animations.play(animation_name)
 	_update_navigation_target()
 
@@ -38,7 +41,6 @@ func process_physics(delta: float) -> State:
 		dir = dir.normalized()
 	var desired = dir * follow_speed
 
-	# Установка скорости
 	if parent.navigation_agent_2d.avoidance_enabled:
 		parent.navigation_agent_2d.set_velocity(desired)
 	else:
@@ -49,7 +51,7 @@ func process_physics(delta: float) -> State:
 	parent.animations.flip_h = parent.velocity.x < 0
 	animations.play(animation_name)
 
-	return null  # остаёмся в attach
+	return null
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	parent.velocity = safe_velocity
