@@ -52,7 +52,7 @@ shader_parameter/distort_intensity = 0.0030000001425
 shader_parameter/noise_opacity = 0.0
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.06
-shader_parameter/aberration = 0.009000047927500088
+shader_parameter/aberration = 0.00900004792750008
 shader_parameter/brightness = 1.4
 shader_parameter/discolor = false
 shader_parameter/warp_amount = 0.302000014345
@@ -2377,15 +2377,24 @@ position = Vector2(2, 0)
 tile_map_data = PackedByteArray("AAABAAAAAAATAAUAAAA=")
 tile_set = SubResource("TileSet_jhx03")
 
-[node name="Enemy" parent="." instance=ExtResource("6_qfnet")]
-position = Vector2(-185, -102)
+[node name="EnemyContainer" type="Node" parent="."]
+
+[node name="Enemy" parent="EnemyContainer" instance=ExtResource("6_qfnet")]
+position = Vector2(224, -161)
 scale = Vector2(3.416035, 3.416035)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qfnet")
 
-[node name="Carryable" parent="." instance=ExtResource("8_4mrxx")]
-position = Vector2(-163, 130)
-
 [node name="Base" parent="." instance=ExtResource("9_7r4gi")]
 position = Vector2(46, 64)
+
+[node name="CarryableContainer" type="Node" parent="."]
+
+[node name="Carryable2" parent="CarryableContainer" instance=ExtResource("8_4mrxx")]
+position = Vector2(-167, 170)
+base_node_path = NodePath("../../Base")
+
+[node name="Carryable" parent="CarryableContainer" instance=ExtResource("8_4mrxx")]
+position = Vector2(-202, 116)
+base_node_path = NodePath("../../Base")

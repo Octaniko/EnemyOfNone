@@ -41,6 +41,7 @@ interactable="Obects that can be interacted with by units."
 enemies="Enemies."
 damageable="Can be damaged."
 carryable="Objects that can be carried to the base by units."
+base="The destination for carrying, unit spawn point."
 
 [input]
 
