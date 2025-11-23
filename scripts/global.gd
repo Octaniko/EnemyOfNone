@@ -1,6 +1,8 @@
 extends Node
 
 signal interactable_collected
+signal interactable_updated
+signal all_interactables_collected
 
 func back_to_menu():
 	get_tree().change_scene_to_file("res://scenes/levels/main_menu/main_menu.tscn")
