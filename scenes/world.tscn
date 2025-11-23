@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://srlmnfge160e"]
+[gd_scene load_steps=24 format=4 uid="uid://srlmnfge160e"]
 
 [ext_resource type="Shader" uid="uid://c7hqetjmaq3p4" path="res://assets/shaders/chromatic_aberration.gdshader" id="1_i7141"]
 [ext_resource type="Texture2D" uid="uid://bu0yc0bvbrptw" path="res://assets/sprites/monochrome-transparent_packed.png" id="1_k0juu"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cn0df6p1m8or6" path="res://scenes/entities/unit/unit.tscn" id="3_4wyf3"]
 [ext_resource type="Shader" uid="uid://q3w8b3i4m26u" path="res://assets/shaders/vhs.gdshader" id="3_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://cl1oh7qlfhj1m" path="res://scenes/entities/player/player.tscn" id="3_k0juu"]
+[ext_resource type="Shader" uid="uid://dptgn8t6jmiik" path="res://assets/shaders/dithering.gdshader" id="4_q5onr"]
 [ext_resource type="PackedScene" uid="uid://kfgm162v1xgt" path="res://scenes/entities/enemy/enemy.tscn" id="6_qfnet"]
 [ext_resource type="Script" uid="uid://dkl042to8ysey" path="res://scenes/entities/unit/unit_manager.gd" id="6_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://d0uns3g334aex" path="res://scenes/objects/carryable.tscn" id="8_4mrxx"]
@@ -25,6 +26,15 @@ shader_parameter/radius = 0.42000001995
 shader_parameter/softness = 0.67200003192
 shader_parameter/intensity = 0.7810000370975
 shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jhx03"]
+shader = ExtResource("4_q5onr")
+shader_parameter/color_dark = Color(0, 0, 0, 1)
+shader_parameter/color_light = Color(1, 1, 1, 1)
+shader_parameter/dither_repeat = 1.0
+shader_parameter/dither_strength = 1.0
+shader_parameter/min_dither_brightness = 0.1
+shader_parameter/bayer_mode = 4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q5onr"]
 shader = ExtResource("3_e3hyu")
@@ -1182,7 +1192,6 @@ sources/0 = SubResource("TileSetAtlasSource_k0juu")
 
 [sub_resource type="Environment" id="Environment_qfnet"]
 background_mode = 3
-glow_enabled = true
 glow_bloom = 0.45
 
 [node name="World" type="Node2D"]
@@ -1201,6 +1210,14 @@ grow_vertical = 2
 [node name="Vignette" type="ColorRect" parent="ShaderOverlay"]
 visible = false
 material = SubResource("ShaderMaterial_4mrxx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dithering" type="ColorRect" parent="ShaderOverlay"]
+material = SubResource("ShaderMaterial_jhx03")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
