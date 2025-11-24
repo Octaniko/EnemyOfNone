@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cn0df6p1m8or6"]
+[gd_scene load_steps=27 format=3 uid="uid://cn0df6p1m8or6"]
 
 [ext_resource type="Script" uid="uid://1qdt460u3kds" path="res://scenes/entities/unit/unit.gd" id="1_o7ajc"]
 [ext_resource type="Texture2D" uid="uid://ild172fbqx74" path="res://scenes/entities/unit/unit-Sheet.png" id="2_jxw44"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b1egw4egq1wg8" path="res://scenes/entities/unit/states/unit_follow.gd" id="4_h1r3i"]
 [ext_resource type="Script" uid="uid://cgl1aieouu5o7" path="res://scenes/entities/unit/states/unit_rush.gd" id="5_6v3vn"]
 [ext_resource type="Script" uid="uid://cdf8sjqwe34y2" path="res://scenes/entities/unit/states/unit_idle.gd" id="6_wi85q"]
+[ext_resource type="Script" uid="uid://cnidyixhicbfn" path="res://scripts/hitbox.gd" id="8_bbfwi"]
 [ext_resource type="Script" uid="uid://dbsx0lql6561h" path="res://scenes/entities/unit/states/unit_attach.gd" id="8_jxw44"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bbfwi"]
@@ -124,6 +125,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ksvj2"]
+radius = 65.03076
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_nnsk1"]
 radius = 3.0
 
@@ -140,6 +144,12 @@ sprite_frames = SubResource("SpriteFrames_8vpj5")
 animation = &"move"
 autoplay = "idle"
 frame_progress = 0.5245273
+
+[node name="HitBox" type="Area2D" parent="AnimatedSprite2D"]
+script = ExtResource("8_bbfwi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitBox"]
+shape = SubResource("CircleShape2D_ksvj2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)

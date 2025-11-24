@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var state_machine: Node = $StateMachine
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
+@export var health := 10
+
 var targets: Array[Node2D] = []
 
 func _ready():
@@ -35,3 +37,11 @@ func get_nearest_target() -> Node2D:
 			min_dist = d
 			nearest = body
 	return nearest
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	if health <= 0:
+		die()
+
+func die() -> void:
+	queue_free()

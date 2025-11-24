@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var movement_speed := 200.0
+@export var health := 1
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
@@ -47,3 +48,11 @@ func _process_player_input(event: InputEvent) -> void:
 
 func get_state_name() -> String:
 	return state_machine.current_state.name
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	if health <= 0:
+		die()
+
+func die() -> void:
+	queue_free()

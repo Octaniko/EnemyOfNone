@@ -1,10 +1,31 @@
-[gd_scene load_steps=18 format=3 uid="uid://kfgm162v1xgt"]
+[gd_scene load_steps=25 format=3 uid="uid://kfgm162v1xgt"]
 
 [ext_resource type="Script" uid="uid://cs05woliwjw83" path="res://scenes/entities/enemy/enemy.gd" id="1_dt443"]
 [ext_resource type="Texture2D" uid="uid://ddu0b40pk08ac" path="res://scenes/entities/enemy/slime_green.png" id="1_ksmh7"]
 [ext_resource type="Script" uid="uid://bcneufwksqfqs" path="res://scenes/entities/enemy/states/enemy_idle.gd" id="2_3fvr7"]
+[ext_resource type="Script" uid="uid://dgyfr51kkwsew" path="res://scripts/hurtbox.gd" id="3_0wdte"]
 [ext_resource type="Script" uid="uid://d0lr6g68pv7ak" path="res://state_machine/state_machine.gd" id="3_3fvr7"]
 [ext_resource type="Script" uid="uid://cbq6v6vodyt1i" path="res://scenes/entities/enemy/states/enemy_follow.gd" id="5_4wwj3"]
+
+[sub_resource type="Animation" id="Animation_0wdte"]
+resource_name = "attack"
+
+[sub_resource type="Animation" id="Animation_7gxlw"]
+resource_name = "hurt"
+
+[sub_resource type="Animation" id="Animation_ilesx"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_ddkys"]
+resource_name = "move"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h26p2"]
+_data = {
+&"attack": SubResource("Animation_0wdte"),
+&"hurt": SubResource("Animation_7gxlw"),
+&"idle": SubResource("Animation_ilesx"),
+&"move": SubResource("Animation_ddkys")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4wwj3"]
 atlas = ExtResource("1_ksmh7")
@@ -92,22 +113,37 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7gxlw"]
+radius = 8.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_im2q6"]
 radius = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_721x4"]
 radius = 18.027756
 
-[node name="Enemy" type="CharacterBody2D" groups=["damageable", "enemies"]]
+[node name="Enemy" type="CharacterBody2D" groups=["enemies", "interactable"]]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_dt443")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["damageable", "enemies"]]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_h26p2")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["enemies"]]
 sprite_frames = SubResource("SpriteFrames_dt443")
 animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.99539715
+
+[node name="HurtBox" type="Area2D" parent="AnimatedSprite2D"]
+script = ExtResource("3_0wdte")
+metadata/_custom_type_script = "uid://dgyfr51kkwsew"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HurtBox"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_7gxlw")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_3fvr7")
