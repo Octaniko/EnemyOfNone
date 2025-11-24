@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://cn0df6p1m8or6"]
+[gd_scene load_steps=29 format=3 uid="uid://cn0df6p1m8or6"]
 
 [ext_resource type="Script" uid="uid://1qdt460u3kds" path="res://scenes/entities/unit/unit.gd" id="1_o7ajc"]
 [ext_resource type="Texture2D" uid="uid://ild172fbqx74" path="res://scenes/entities/unit/unit-Sheet.png" id="2_jxw44"]
 [ext_resource type="Script" uid="uid://d0lr6g68pv7ak" path="res://state_machine/state_machine.gd" id="3_p0kfm"]
+[ext_resource type="Script" uid="uid://dgyfr51kkwsew" path="res://scripts/hurtbox.gd" id="4_bbfwi"]
 [ext_resource type="Script" uid="uid://b1egw4egq1wg8" path="res://scenes/entities/unit/states/unit_follow.gd" id="4_h1r3i"]
 [ext_resource type="Script" uid="uid://cgl1aieouu5o7" path="res://scenes/entities/unit/states/unit_rush.gd" id="5_6v3vn"]
 [ext_resource type="Script" uid="uid://cdf8sjqwe34y2" path="res://scenes/entities/unit/states/unit_idle.gd" id="6_wi85q"]
@@ -126,7 +127,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ksvj2"]
-radius = 65.03076
+radius = 10.049875
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jxw44"]
+radius = 3.1622777
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nnsk1"]
 radius = 3.0
@@ -140,20 +144,50 @@ collision_mask = 5
 script = ExtResource("1_o7ajc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_8vpj5")
 animation = &"move"
 autoplay = "idle"
 frame_progress = 0.5245273
 
 [node name="HitBox" type="Area2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 4)
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("8_bbfwi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitBox"]
 shape = SubResource("CircleShape2D_ksvj2")
 
+[node name="HurtBox" type="Area2D" parent="AnimatedSprite2D"]
+position = Vector2(-2, 4)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_bbfwi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HurtBox"]
+shape = SubResource("CircleShape2D_jxw44")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_nnsk1")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(0, -4)
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_p0kfm")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 5.0
+target_desired_distance = 7.35
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 3.65
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_p0kfm")
@@ -182,23 +216,8 @@ script = ExtResource("8_jxw44")
 idle_state = NodePath("../Idle")
 animation_name = "carry"
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 5.0
-target_desired_distance = 7.35
-path_postprocessing = 1
-avoidance_enabled = true
-radius = 3.65
-debug_use_custom = true
-debug_path_custom_color = Color(1, 0, 0, 1)
-
-[node name="DetectionArea" type="Area2D" parent="."]
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-shape = SubResource("CircleShape2D_p0kfm")
-
-[connection signal="velocity_computed" from="NavigationAgent2D" to="StateMachine/Follow" method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="body_entered" from="DetectionArea" to="StateMachine/Rush" method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="StateMachine/Idle" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="StateMachine/Rush" method="_on_detection_area_body_exited"]
 [connection signal="body_exited" from="DetectionArea" to="StateMachine/Idle" method="_on_detection_area_body_exited"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="StateMachine/Follow" method="_on_navigation_agent_2d_velocity_computed"]

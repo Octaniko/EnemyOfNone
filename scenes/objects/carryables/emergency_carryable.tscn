@@ -11,7 +11,7 @@ radius = 17.029387
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1feky"]
 size = Vector2(13, 13)
 
-[node name="Carryable" type="CharacterBody2D" groups=["carryable", "emergency", "interactable"]]
+[node name="EmergencyCarryable" type="CharacterBody2D" groups=["carryable", "emergency", "interactable"]]
 script = ExtResource("1_ejl14")
 required_units = 1
 

@@ -1,10 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://kfgm162v1xgt"]
+[gd_scene load_steps=33 format=3 uid="uid://kfgm162v1xgt"]
 
 [ext_resource type="Script" uid="uid://cs05woliwjw83" path="res://scenes/entities/enemy/enemy.gd" id="1_dt443"]
 [ext_resource type="Texture2D" uid="uid://ddu0b40pk08ac" path="res://scenes/entities/enemy/slime_green.png" id="1_ksmh7"]
 [ext_resource type="Script" uid="uid://bcneufwksqfqs" path="res://scenes/entities/enemy/states/enemy_idle.gd" id="2_3fvr7"]
+[ext_resource type="Texture2D" uid="uid://1leh6kw45fh" path="res://scenes/entities/enemy/enemy-Sheet.png" id="2_ilesx"]
 [ext_resource type="Script" uid="uid://dgyfr51kkwsew" path="res://scripts/hurtbox.gd" id="3_0wdte"]
 [ext_resource type="Script" uid="uid://d0lr6g68pv7ak" path="res://state_machine/state_machine.gd" id="3_3fvr7"]
+[ext_resource type="Script" uid="uid://cnidyixhicbfn" path="res://scripts/hitbox.gd" id="4_ddkys"]
 [ext_resource type="Script" uid="uid://cbq6v6vodyt1i" path="res://scenes/entities/enemy/states/enemy_follow.gd" id="5_4wwj3"]
 [ext_resource type="Shader" uid="uid://biymf17lmuqph" path="res://assets/shaders/circle_progress_bar.gdshader" id="7_7gxlw"]
 
@@ -28,13 +30,29 @@ _data = {
 &"move": SubResource("Animation_ddkys")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4wwj3"]
-atlas = ExtResource("1_ksmh7")
-region = Rect2(24, 48, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddkys"]
+atlas = ExtResource("2_ilesx")
+region = Rect2(0, 48, 27, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_721x4"]
-atlas = ExtResource("1_ksmh7")
-region = Rect2(0, 48, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_h26p2"]
+atlas = ExtResource("2_ilesx")
+region = Rect2(27, 48, 27, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ei1b"]
+atlas = ExtResource("2_ilesx")
+region = Rect2(54, 48, 27, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frkcr"]
+atlas = ExtResource("2_ilesx")
+region = Rect2(81, 48, 27, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0e4h"]
+atlas = ExtResource("2_ilesx")
+region = Rect2(108, 48, 27, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilesx"]
+atlas = ExtResource("2_ilesx")
+region = Rect2(0, 96, 27, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d50e0"]
 atlas = ExtResource("1_ksmh7")
@@ -48,33 +66,46 @@ region = Rect2(48, 48, 24, 24)
 atlas = ExtResource("1_ksmh7")
 region = Rect2(72, 48, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_im2q6"]
-atlas = ExtResource("1_ksmh7")
-region = Rect2(0, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkr0c"]
+atlas = ExtResource("2_ilesx")
+region = Rect2(0, 0, 27, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3fvr7"]
-atlas = ExtResource("1_ksmh7")
-region = Rect2(24, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbss2"]
+atlas = ExtResource("2_ilesx")
+region = Rect2(27, 0, 27, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ksmh7"]
-atlas = ExtResource("1_ksmh7")
-region = Rect2(0, 24, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dt443"]
-atlas = ExtResource("1_ksmh7")
-region = Rect2(24, 24, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oa0t"]
+atlas = ExtResource("2_ilesx")
+region = Rect2(0, 0, 27, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dt443"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4wwj3")
+"texture": SubResource("AtlasTexture_ddkys")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_721x4")
+"texture": SubResource("AtlasTexture_h26p2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ei1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frkcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0e4h")
 }],
 "loop": true,
 "name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilesx")
+}],
+"loop": true,
+"name": &"die",
 "speed": 5.0
 }, {
 "frames": [{
@@ -93,10 +124,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_im2q6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3fvr7")
+"texture": SubResource("AtlasTexture_jkr0c")
 }],
 "loop": true,
 "name": &"idle",
@@ -104,24 +132,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ksmh7")
+"texture": SubResource("AtlasTexture_sbss2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dt443")
+"texture": SubResource("AtlasTexture_4oa0t")
 }],
 "loop": true,
 "name": &"move",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7gxlw"]
-radius = 8.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_ilesx"]
+radius = 15.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_im2q6"]
-radius = 4.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ilesx"]
+radius = 9.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ddkys"]
+radius = 7.0
+height = 28.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_721x4"]
-radius = 18.027756
+radius = 102.122475
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ilesx"]
 shader = ExtResource("7_7gxlw")
@@ -142,35 +175,39 @@ libraries = {
 }
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["enemies"]]
+position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_dt443")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
 
+[node name="HitBox" type="Area2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 16)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("4_ddkys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitBox"]
+shape = SubResource("CircleShape2D_ilesx")
+
 [node name="HurtBox" type="Area2D" parent="AnimatedSprite2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("3_0wdte")
-metadata/_custom_type_script = "uid://dgyfr51kkwsew"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HurtBox"]
-position = Vector2(0, 6)
-shape = SubResource("CircleShape2D_7gxlw")
-
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
-script = ExtResource("3_3fvr7")
-starting_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("follow_state")]
-script = ExtResource("2_3fvr7")
-follow_state = NodePath("../Follow")
-animation_name = "idle"
-
-[node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
-script = ExtResource("5_4wwj3")
-idle_state = NodePath("../Idle")
-animation_name = "move"
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_ilesx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
-shape = SubResource("CircleShape2D_im2q6")
+position = Vector2(0, -14)
+shape = SubResource("CapsuleShape2D_ddkys")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_721x4")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 5.0
@@ -178,14 +215,6 @@ target_desired_distance = 5.0
 path_postprocessing = 1
 debug_use_custom = true
 debug_path_custom_color = Color(0, 1, 1, 1)
-
-[node name="DetectionArea" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(0, 8)
-shape = SubResource("CircleShape2D_721x4")
 
 [node name="ProgressBar" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_ilesx")
@@ -200,6 +229,20 @@ offset_right = 3.0
 offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("3_3fvr7")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("follow_state")]
+script = ExtResource("2_3fvr7")
+follow_state = NodePath("../Follow")
+animation_name = "idle"
+
+[node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("5_4wwj3")
+idle_state = NodePath("../Idle")
+animation_name = "move"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
