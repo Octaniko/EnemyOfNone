@@ -2370,8 +2370,9 @@ position = Vector2(50, -11)
 zoom = Vector2(3.985, 3.985)
 position_smoothing_enabled = true
 
-[node name="UnitManager" type="Node" parent="."]
+[node name="UnitManager" type="Node" parent="." node_paths=PackedStringArray("base")]
 script = ExtResource("9_8cjxf")
+base = NodePath("../Base")
 
 [node name="Unit" parent="UnitManager" instance=ExtResource("10_jtmcs")]
 position = Vector2(-10, 75)
@@ -2429,9 +2430,6 @@ position = Vector2(-10, 75)
 
 [node name="Unit19" parent="UnitManager" instance=ExtResource("10_jtmcs")]
 position = Vector2(-10, 75)
-
-[node name="Unit20" parent="UnitManager" instance=ExtResource("10_jtmcs")]
-position = Vector2(-30, 67)
 
 [node name="EnemyContainer" type="Node" parent="."]
 

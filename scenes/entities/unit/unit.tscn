@@ -172,7 +172,7 @@ script = ExtResource("8_jxw44")
 idle_state = NodePath("../Idle")
 animation_name = "carry"
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." groups=["targets", "units"]]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 5.0
 target_desired_distance = 7.35
 path_postprocessing = 1
