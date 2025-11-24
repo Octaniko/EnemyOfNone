@@ -21,6 +21,9 @@ func _process(delta: float) -> void:
 		spawn_unit()
 		units_reserved -= 1
 		_emit_units_changed()
+	if units_active == 0 and units_reserved == 0:
+		spawn_unit()
+		_emit_units_changed()
 
 func spawn_unit():
 	var unit_instance = unit_scene.instantiate()
@@ -37,3 +40,7 @@ func get_reserved() -> int:
 
 func get_active() -> int:
 	return get_tree().get_nodes_in_group("units").size()
+
+func add_units_emergency():
+	units_reserved += 2
+	_emit_units_changed()

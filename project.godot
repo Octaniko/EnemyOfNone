@@ -48,6 +48,8 @@ enemies="Enemies."
 damageable="Can be damaged."
 carryable="Objects that can be carried to the base by units."
 base="The destination for carrying, unit spawn point."
+emergency="Carryable for creating 1 unit."
+unit_manager=""
 
 [input]
 

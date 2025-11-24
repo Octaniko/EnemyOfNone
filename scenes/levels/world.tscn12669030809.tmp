@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://c25ikmiuhm14x" path="res://ui/level_complete_menu.tscn" id="7_y40x4"]
 [ext_resource type="PackedScene" uid="uid://cl1oh7qlfhj1m" path="res://scenes/entities/player/player.tscn" id="8_px3xn"]
 [ext_resource type="Script" uid="uid://dkl042to8ysey" path="res://scenes/entities/unit/unit_manager.gd" id="9_8cjxf"]
+[ext_resource type="PackedScene" uid="uid://cn0df6p1m8or6" path="res://scenes/entities/unit/unit.tscn" id="10_jtmcs"]
 [ext_resource type="PackedScene" uid="uid://kfgm162v1xgt" path="res://scenes/entities/enemy/enemy.tscn" id="11_3lsws"]
 [ext_resource type="PackedScene" uid="uid://bnhyx32kowh77" path="res://scenes/objects/base.tscn" id="12_yywnm"]
-[ext_resource type="PackedScene" uid="uid://d0uns3g334aex" path="res://scenes/objects/carryables/carryable.tscn" id="13_rny25"]
-[ext_resource type="PackedScene" uid="uid://b3yfwj6ilacco" path="res://scenes/objects/spawner.tscn" id="15_y40x4"]
+[ext_resource type="PackedScene" uid="uid://d0uns3g334aex" path="res://scenes/objects/carryable.tscn" id="13_rny25"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i7141"]
 shader = ExtResource("2_8c33x")
@@ -1263,9 +1263,66 @@ position = Vector2(50, -11)
 zoom = Vector2(3.985, 3.985)
 position_smoothing_enabled = true
 
-[node name="UnitManager" type="Node" parent="." node_paths=PackedStringArray("base") groups=["unit_manager"]]
+[node name="UnitManager" type="Node" parent="." node_paths=PackedStringArray("base")]
 script = ExtResource("9_8cjxf")
 base = NodePath("../Base")
+
+[node name="Unit" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit3" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit4" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit5" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit6" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit7" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit8" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit9" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit10" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit2" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-30, 67)
+
+[node name="Unit11" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit12" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit13" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit14" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit15" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit16" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit17" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit18" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
+
+[node name="Unit19" parent="UnitManager" instance=ExtResource("10_jtmcs")]
+position = Vector2(-10, 75)
 
 [node name="EnemyContainer" type="Node" parent="."]
 
@@ -1295,6 +1352,3 @@ position = Vector2(-167, 170)
 
 [node name="Carryable" parent="CarryableContainer" instance=ExtResource("13_rny25")]
 position = Vector2(-202, 116)
-
-[node name="Spawner" parent="." instance=ExtResource("15_y40x4")]
-position = Vector2(-18, -20)

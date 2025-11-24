@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8rqer7u876tq"]
+
+[ext_resource type="Script" uid="uid://vwcvdgfk0iax" path="res://scenes/objects/carryables/carryable.gd" id="1_ejl14"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kibfx"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1feky"]
+radius = 17.029387
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1feky"]
+size = Vector2(13, 13)
+
+[node name="Carryable" type="CharacterBody2D" groups=["carryable", "emergency", "interactable"]]
+script = ExtResource("1_ejl14")
+required_units = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kibfx")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_1feky")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_1feky")
+
+[node name="CountLabel" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -32.0
+offset_right = 20.0
+offset_bottom = -9.0
+text = "0/1"
+horizontal_alignment = 1
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 5.0
+target_desired_distance = 5.0
+path_postprocessing = 1
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

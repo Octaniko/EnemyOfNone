@@ -3,7 +3,7 @@ extends HBoxContainer
 @onready var unit_counter: Label = $VBoxContainer/UnitCounter
 @onready var unit_manager: Node = $"../../../UnitManager"
 
-func _process(delta: float) -> void:
+func _ready() -> void:
 	if unit_manager:
 		unit_manager.connect("units_changed", Callable(self, "_on_units_changed"))
 	_update_unit_counter(unit_manager.get_active(), unit_manager.get_reserved())
