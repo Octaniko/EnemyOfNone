@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://kfgm162v1xgt"]
+[gd_scene load_steps=27 format=3 uid="uid://kfgm162v1xgt"]
 
 [ext_resource type="Script" uid="uid://cs05woliwjw83" path="res://scenes/entities/enemy/enemy.gd" id="1_dt443"]
 [ext_resource type="Texture2D" uid="uid://ddu0b40pk08ac" path="res://scenes/entities/enemy/slime_green.png" id="1_ksmh7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dgyfr51kkwsew" path="res://scripts/hurtbox.gd" id="3_0wdte"]
 [ext_resource type="Script" uid="uid://d0lr6g68pv7ak" path="res://state_machine/state_machine.gd" id="3_3fvr7"]
 [ext_resource type="Script" uid="uid://cbq6v6vodyt1i" path="res://scenes/entities/enemy/states/enemy_follow.gd" id="5_4wwj3"]
+[ext_resource type="Shader" uid="uid://biymf17lmuqph" path="res://assets/shaders/circle_progress_bar.gdshader" id="7_7gxlw"]
 
 [sub_resource type="Animation" id="Animation_0wdte"]
 resource_name = "attack"
@@ -122,6 +123,14 @@ radius = 4.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_721x4"]
 radius = 18.027756
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ilesx"]
+shader = ExtResource("7_7gxlw")
+shader_parameter/progress = 0.0
+shader_parameter/ring_thickness = 0.39400001801648
+shader_parameter/ring_radius = 0.10000000149012
+shader_parameter/progress_color = Color(1, 1, 1, 1)
+shader_parameter/background_color = Color(0, 0, 0, 1)
+
 [node name="Enemy" type="CharacterBody2D" groups=["enemies", "interactable"]]
 collision_layer = 4
 collision_mask = 15
@@ -177,6 +186,20 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_721x4")
+
+[node name="ProgressBar" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ilesx")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -9.0
+offset_right = 3.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

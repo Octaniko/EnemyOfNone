@@ -4,13 +4,18 @@ extends CharacterBody2D
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: Node = $StateMachine
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@onready var health_bar: ColorRect = $ProgressBar
 
-@export var health := 10
+@export var max_health := 10
+
+var health: int
 
 var targets: Array[Node2D] = []
 
 func _ready():
+	health = max_health
 	state_machine.init(self, animations)
+	_update_health_bar()
 
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
@@ -40,8 +45,19 @@ func get_nearest_target() -> Node2D:
 
 func take_damage(amount: int) -> void:
 	health -= amount
+	health = max(health, 0)
+	_update_health_bar()
 	if health <= 0:
 		die()
 
 func die() -> void:
 	queue_free()
+
+func _update_health_bar() -> void:
+	var fraction := float(health) / float(max_health)
+	fraction = clamp(fraction, 0.0, 1.0)
+	var mat = health_bar.material
+	if mat and mat is ShaderMaterial:
+		mat.set_shader_parameter("progress", fraction)
+	else:
+		health_bar.size.x = health_bar.get_parent().size.x * fraction
