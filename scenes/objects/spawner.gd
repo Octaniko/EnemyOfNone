@@ -8,11 +8,20 @@ var overlapping_bodies := []
 
 @onready var timer: Timer = $Timer
 @onready var area: Area2D = $Area2D
+@onready var progress_bar: ColorRect = $ProgressBar
 
 func _ready() -> void:
 	_spawn_carryable()
 	timer.wait_time = spawn_cooldown
 	timer.timeout.connect(Callable(self, "_on_timer_timeout"))
+
+func _process(delta: float) -> void:
+	if not timer.is_paused():
+		var t = timer.time_left
+		var frac = (spawn_cooldown - t) / spawn_cooldown
+		progress_bar.material.set_shader_parameter("progress", frac)
+	else:
+		progress_bar.material.set_shader_parameter("progress", 1.0)
 
 func _on_timer_timeout():
 	if is_instance_valid(current_instance):

@@ -1,11 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3yfwj6ilacco"]
+[gd_scene load_steps=6 format=3 uid="uid://b3yfwj6ilacco"]
 
 [ext_resource type="Script" uid="uid://dn2ulmj0un4yq" path="res://scenes/objects/spawner.gd" id="1_lkrw2"]
+[ext_resource type="Shader" uid="uid://biymf17lmuqph" path="res://assets/shaders/circle_progress_bar.gdshader" id="2_iuj7d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lkrw2"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_iuj7d"]
 size = Vector2(18, 18)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g528p"]
+shader = ExtResource("2_iuj7d")
+shader_parameter/progress = 0.0
+shader_parameter/ring_thickness = 0.39400001801648
+shader_parameter/ring_radius = 0.10000000149012
+shader_parameter/progress_color = Color(1, 1, 1, 1)
+shader_parameter/background_color = Color(0, 0, 0, 1)
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_lkrw2")
@@ -20,7 +29,22 @@ autostart = true
 shape = SubResource("CircleShape2D_lkrw2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = SubResource("PlaceholderTexture2D_iuj7d")
+
+[node name="ProgressBar" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_g528p")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

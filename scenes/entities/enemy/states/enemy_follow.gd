@@ -14,5 +14,5 @@ func process_physics(delta: float) -> State:
 	var next_path_position = parent.navigation_agent_2d.get_next_path_position()
 	parent.velocity = (next_path_position - parent.global_position).normalized() * move_speed
 	parent.move_and_slide()
-
+	
 	return null
