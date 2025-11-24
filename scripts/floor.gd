@@ -1,12 +1,13 @@
 extends TileMapLayer
 
+@onready var walls: TileMapLayer = $"../Walls"
 @onready var obstacles: TileMapLayer = $"../Obstacles"
 
 func _use_tile_data_runtime_update(coords: Vector2i) -> bool:
-	if coords in obstacles.get_used_cells_by_id():
+	if coords in obstacles.get_used_cells_by_id() or coords in walls.get_used_cells_by_id():
 		return true
 	return false
 
 func _tile_data_runtime_update(coords: Vector2i, tile_data: TileData) -> void:
-	if coords in obstacles.get_used_cells_by_id():
+	if coords in obstacles.get_used_cells_by_id() or coords in walls.get_used_cells_by_id():
 		tile_data.set_navigation_polygon(0, null)

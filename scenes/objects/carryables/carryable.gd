@@ -1,3 +1,4 @@
+# todo figure out why its not adding to the counter
 extends CharacterBody2D
 class_name Carryable
 

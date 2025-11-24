@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var health_bar: ColorRect = $ProgressBar
 
+@export var carcass_scene : PackedScene
 @export var max_health := 10
 
 var health: int
@@ -51,7 +52,15 @@ func take_damage(amount: int) -> void:
 		die()
 
 func die() -> void:
+	_spawn_carcass()
 	queue_free()
+
+func _spawn_carcass():
+	if carcass_scene == null:
+		return
+	var carcass_instance = carcass_scene.instantiate()
+	carcass_instance.global_position = global_position
+	get_tree().current_scene.add_child(carcass_instance)
 
 func _update_health_bar() -> void:
 	var fraction := float(health) / float(max_health)

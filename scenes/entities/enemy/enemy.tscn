@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://kfgm162v1xgt"]
+[gd_scene load_steps=34 format=3 uid="uid://kfgm162v1xgt"]
 
 [ext_resource type="Script" uid="uid://cs05woliwjw83" path="res://scenes/entities/enemy/enemy.gd" id="1_dt443"]
 [ext_resource type="Texture2D" uid="uid://ddu0b40pk08ac" path="res://scenes/entities/enemy/slime_green.png" id="1_ksmh7"]
 [ext_resource type="Script" uid="uid://bcneufwksqfqs" path="res://scenes/entities/enemy/states/enemy_idle.gd" id="2_3fvr7"]
+[ext_resource type="PackedScene" uid="uid://nv786svhfpre" path="res://scenes/entities/enemy/carcass.tscn" id="2_h26p2"]
 [ext_resource type="Texture2D" uid="uid://1leh6kw45fh" path="res://scenes/entities/enemy/enemy-Sheet.png" id="2_ilesx"]
 [ext_resource type="Script" uid="uid://dgyfr51kkwsew" path="res://scripts/hurtbox.gd" id="3_0wdte"]
 [ext_resource type="Script" uid="uid://d0lr6g68pv7ak" path="res://state_machine/state_machine.gd" id="3_3fvr7"]
@@ -168,6 +169,7 @@ shader_parameter/background_color = Color(0, 0, 0, 1)
 collision_layer = 5
 collision_mask = 15
 script = ExtResource("1_dt443")
+carcass_scene = ExtResource("2_h26p2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

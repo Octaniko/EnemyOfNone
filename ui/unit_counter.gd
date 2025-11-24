@@ -1,3 +1,4 @@
+# todo make this react to units dying
 extends HBoxContainer
 
 @onready var unit_counter: Label = $VBoxContainer/UnitCounter
