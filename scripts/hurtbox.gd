@@ -6,9 +6,9 @@ func _init() -> void:
 	collision_mask = 2
 
 func _ready() -> void:
-	connect("area_entered", Callable(self, "_on_area_enetered"))
+	connect("area_entered", Callable(self, "_on_area_entered"))
 
-func _on_area_enetered(hitbox: HitBox) -> void:
+func _on_area_entered(hitbox: HitBox) -> void:
 	if hitbox == null:
 		return
 	
