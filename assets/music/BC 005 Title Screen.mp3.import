@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bdg5mt5ww616q"
+path="res://.godot/imported/BC 005 Title Screen.mp3-e6cec7e7c31229a3eae8c50acb4e951d.mp3str"
+
+[deps]
+
+source_file="res://assets/music/BC 005 Title Screen.mp3"
+dest_files=["res://.godot/imported/BC 005 Title Screen.mp3-e6cec7e7c31229a3eae8c50acb4e951d.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

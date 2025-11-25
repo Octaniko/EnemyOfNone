@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxw7qtua04j2n"]
+[gd_scene load_steps=11 format=3 uid="uid://dxw7qtua04j2n"]
 
 [ext_resource type="Shader" uid="uid://dptgn8t6jmiik" path="res://assets/shaders/dithering.gdshader" id="2_ob46e"]
 [ext_resource type="VideoStream" uid="uid://dxro8v3ijegcl" path="res://assets/images/main_menu_loop.ogv" id="2_uwqft"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://1w6i0axq4qb8" path="res://scenes/levels/main_menu/main_menu.gd" id="3_ob46e"]
 [ext_resource type="Theme" uid="uid://4m7a8n1anu0j" path="res://assets/themes/main_menu.tres" id="4_hkpjj"]
 [ext_resource type="Shader" uid="uid://q3w8b3i4m26u" path="res://assets/shaders/vhs.gdshader" id="4_uwqft"]
+[ext_resource type="Texture2D" uid="uid://drkkevbjuigq2" path="res://meta/Enemy of None Logo.png" id="5_hkpjj"]
+[ext_resource type="AudioStream" uid="uid://bdg5mt5ww616q" path="res://assets/music/BC 005 Title Screen.mp3" id="8_mw2pj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hkpjj"]
 shader = ExtResource("4_uwqft")
@@ -106,15 +108,15 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -348.0
-offset_top = -122.5
-offset_right = -25.0
-offset_bottom = 139.5
+offset_left = -261.0
+offset_top = 58.0
+offset_right = -28.0
+offset_bottom = 250.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 18
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 26
 text = "Move: WASD
 Rush: Spacebar
 Recall: Shift
@@ -122,32 +124,15 @@ Back to menu: Esc
 Collect everything!"
 horizontal_alignment = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -502.0
-offset_top = 28.0
-offset_right = -47.0
-offset_bottom = 329.0
-grow_horizontal = 0
-
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 18
-theme_override_font_sizes/font_size = 91
-text = "ENEMY OF
-NONE"
-horizontal_alignment = 2
-
-[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer2"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 18
-theme_override_font_sizes/font_size = 31
-text = "by Sergei Tananin"
-horizontal_alignment = 2
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 267.26)
+offset_left = -59.0
+offset_top = 23.0
+offset_right = 396.0
+offset_bottom = 290.26
+texture = ExtResource("5_hkpjj")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="VHS" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_hkpjj")
@@ -167,6 +152,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_mw2pj")
+autoplay = true
+bus = &"Music"
 
 [connection signal="finished" from="CanvasLayer/Control/Intro" to="." method="_on_intro_finished"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
