@@ -16,9 +16,18 @@ func _physics_process(delta):
 		direction = direction.normalized() * move_speed
 		follow_point.position = -direction * follow_distance
 		cursor.position = direction * follow_distance
-	if direction > Vector2.ZERO:
+
+	# --- АНИМАЦИИ ПО СКОРОСТИ ---
+	if direction.length() > 5: # скорость почти не нулевая
+		animations.play("move")
+	else:
+		animations.play("idle")
+
+	# --- ФЛИП ПО Х ---
+	if direction.x > 0:
 		animations.flip_h = false
-	elif direction < Vector2.ZERO:
+	elif direction.x < 0:
 		animations.flip_h = true
+
 	velocity = direction
 	move_and_slide()

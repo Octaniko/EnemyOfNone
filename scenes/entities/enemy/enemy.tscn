@@ -98,18 +98,18 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ilesx"]
-radius = 12.0
+radius = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ilesx"]
-radius = 9.0
-height = 32.0
+radius = 12.0
+height = 40.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ddkys"]
 radius = 7.0
 height = 28.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_721x4"]
-radius = 102.122475
+radius = 92.00543
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ilesx"]
 shader = ExtResource("7_7gxlw")
@@ -124,7 +124,6 @@ collision_layer = 5
 collision_mask = 15
 script = ExtResource("1_dt443")
 carcass_scene = ExtResource("2_h26p2")
-max_health = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["enemies"]]
 position = Vector2(0, -24)
@@ -143,12 +142,12 @@ script = ExtResource("4_ddkys")
 shape = SubResource("CircleShape2D_ilesx")
 
 [node name="HurtBox" type="Area2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 10)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_0wdte")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HurtBox"]
-position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_ilesx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -176,12 +175,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -9.0
-offset_right = 3.0
-offset_bottom = -2.0
+offset_left = -10.0
+offset_top = -67.0
+offset_right = -3.0
+offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2.519999, 2.519999)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_3fvr7")

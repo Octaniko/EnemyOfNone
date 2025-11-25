@@ -91,7 +91,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eeqps"]
 radius = 7.0
-height = 28.0
+height = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n22ip"]
 radius = 25.179358
@@ -103,18 +103,20 @@ required_units = 5
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["enemies"]]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_q77wx")
-animation = &"attack"
+animation = &"die"
 autoplay = "die"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -14)
+position = Vector2(-1, -9)
 shape = SubResource("CapsuleShape2D_eeqps")
 
 [node name="CountLabel" type="Label" parent="."]
 offset_left = -19.0
-offset_top = -68.0
+offset_top = -72.0
 offset_right = 21.0
-offset_bottom = -45.0
+offset_bottom = -49.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 text = "0/2"
 horizontal_alignment = 1
 
@@ -122,7 +124,6 @@ horizontal_alignment = 1
 path_desired_distance = 5.0
 target_desired_distance = 5.0
 path_postprocessing = 1
-debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="DetectionArea" type="Area2D" parent="."]

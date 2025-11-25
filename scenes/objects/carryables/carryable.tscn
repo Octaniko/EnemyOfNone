@@ -1,14 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0uns3g334aex"]
 
 [ext_resource type="Script" uid="uid://vwcvdgfk0iax" path="res://scenes/objects/carryables/carryable.gd" id="1_kibfx"]
+[ext_resource type="Texture2D" uid="uid://d1r208gk8uufh" path="res://scenes/objects/carryables/carryable.png" id="2_4ajyn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kibfx"]
-radius = 9.0
+radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1feky"]
 radius = 25.179358
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1feky"]
 
 [node name="Carryable" type="CharacterBody2D" groups=["carryable", "interactable"]]
 script = ExtResource("1_kibfx")
@@ -24,14 +23,16 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_1feky")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(22.075, 22.075)
-texture = SubResource("PlaceholderTexture2D_1feky")
+scale = Vector2(1.55, 1.55)
+texture = ExtResource("2_4ajyn")
 
 [node name="CountLabel" type="Label" parent="."]
 offset_left = -20.0
 offset_top = -32.0
 offset_right = 20.0
 offset_bottom = -9.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 text = "0/2"
 horizontal_alignment = 1
 
