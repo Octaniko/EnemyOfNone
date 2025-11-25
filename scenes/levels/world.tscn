@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://srlmnfge160e"]
+[gd_scene load_steps=31 format=4 uid="uid://srlmnfge160e"]
 
 [ext_resource type="Script" uid="uid://bxwgngq6tdat0" path="res://scripts/game_controller.gd" id="1_xidr1"]
 [ext_resource type="Shader" uid="uid://c7hqetjmaq3p4" path="res://assets/shaders/chromatic_aberration.gdshader" id="2_8c33x"]
@@ -1277,11 +1277,6 @@ navigation_layer_1/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_k0juu")
 sources/1 = SubResource("TileSetAtlasSource_px3xn")
 
-[sub_resource type="Environment" id="Environment_qfnet"]
-background_mode = 3
-glow_enabled = true
-glow_bloom = 0.45
-
 [node name="World" type="Node2D"]
 
 [node name="GameController" type="Node" parent="."]
@@ -1484,9 +1479,6 @@ tile_set = SubResource("TileSet_71j4m")
 
 [node name="Obstacles" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_71j4m")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_qfnet")
 
 [node name="Spawner" parent="." instance=ExtResource("17_pj0xw")]
 position = Vector2(-20, 24)
