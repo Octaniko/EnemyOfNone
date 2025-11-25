@@ -13,7 +13,6 @@ func init(parent: CharacterBody2D, animations: AnimatedSprite2D) -> void:
 func change_state(new_state: State) -> void:
 	if current_state:
 		current_state.exit()
-	print("Current state ", current_state, " New state: ", new_state)
 	current_state = new_state
 	current_state.enter()
 

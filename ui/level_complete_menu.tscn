@@ -1,6 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://c25ikmiuhm14x"]
+[gd_scene load_steps=9 format=3 uid="uid://c25ikmiuhm14x"]
 
 [ext_resource type="Script" uid="uid://cs8quwli548o8" path="res://ui/level_complete_menu.gd" id="1_m7ugh"]
+[ext_resource type="Texture2D" uid="uid://cgcd3gpgnvl8f" path="res://assets/images/outro.png" id="2_m7ugh"]
+[ext_resource type="Shader" uid="uid://q3w8b3i4m26u" path="res://assets/shaders/vhs.gdshader" id="3_msoao"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ksed3"]
+
+[sub_resource type="Theme" id="Theme_m7ugh"]
+Button/styles/normal = SubResource("StyleBoxEmpty_ksed3")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_msoao"]
+
+[sub_resource type="Theme" id="Theme_diun8"]
+Button/styles/normal = SubResource("StyleBoxEmpty_msoao")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_diun8"]
+shader = ExtResource("3_msoao")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.0030000001425
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.00900004792750008
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.302000014345
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.0
+shader_parameter/vignette_opacity = 0.5
 
 [node name="LevelCompleteMenu" type="Control"]
 process_mode = 3
@@ -34,6 +70,11 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_m7ugh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
@@ -76,13 +117,26 @@ size_flags_horizontal = 4
 
 [node name="Restart" type="Button" parent="CenterContainer/VBoxContainer/ButtonsContainer"]
 layout_mode = 2
+theme = SubResource("Theme_m7ugh")
 theme_override_font_sizes/font_size = 86
 text = "Restart"
 
 [node name="Menu" type="Button" parent="CenterContainer/VBoxContainer/ButtonsContainer"]
 layout_mode = 2
+theme = SubResource("Theme_diun8")
 theme_override_font_sizes/font_size = 86
 text = "Menu"
+
+[node name="VHS" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_diun8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="LevelCompleteSound" type="AudioStreamPlayer" parent="."]
 

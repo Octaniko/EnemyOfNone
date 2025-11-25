@@ -35,14 +35,11 @@ func process_physics(delta: float) -> State:
 
 func _on_detection_area_body_entered(body: Node2D) -> State:
 	if parent.state_machine.current_state != self:
-		print("Not the right state")
 		return null
 	if body.is_in_group("interactable"):
 			attach_state.set_target(body)
 			parent.state_machine.change_state(attach_state)
-			print("Found target")
 			return null
-	print("No target")
 	return null
 
 func _on_detection_area_body_exited(body):
