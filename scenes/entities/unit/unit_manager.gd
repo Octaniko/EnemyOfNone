@@ -42,7 +42,7 @@ func get_active() -> int:
 	return get_tree().get_nodes_in_group("units").size()
 
 func add_units_emergency():
-	units_reserved += 2
+	units_reserved += 1
 	_emit_units_changed()
 
 func on_unit_died():

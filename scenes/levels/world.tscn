@@ -1427,5 +1427,8 @@ position = Vector2(-202, 116)
 [node name="Spawner" parent="." instance=ExtResource("15_y40x4")]
 position = Vector2(-18, -20)
 
+[node name="Spawner2" parent="." instance=ExtResource("15_y40x4")]
+position = Vector2(-25, 71)
+
 [node name="Carcass" parent="." instance=ExtResource("13_pj0xw")]
 position = Vector2(-154, 21)
