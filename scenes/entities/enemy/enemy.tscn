@@ -170,6 +170,7 @@ collision_layer = 5
 collision_mask = 15
 script = ExtResource("1_dt443")
 carcass_scene = ExtResource("2_h26p2")
+max_health = 100
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -186,6 +187,7 @@ autoplay = "idle"
 position = Vector2(0, 16)
 collision_layer = 4
 collision_mask = 0
+monitorable = false
 script = ExtResource("4_ddkys")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HitBox"]

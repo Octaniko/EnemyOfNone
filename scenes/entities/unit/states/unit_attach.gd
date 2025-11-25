@@ -54,4 +54,4 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 
 func exit() -> void:
 	attach_target = null
-	hitbox.monitorable = false
+	hitbox.set_deferred("monitorable", false)
