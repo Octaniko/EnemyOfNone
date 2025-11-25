@@ -10,11 +10,12 @@ config_version=5
 
 [application]
 
-config/name="1-Bit"
+config/name="Enemy of None"
 run/main_scene="uid://dxw7qtua04j2n"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="uid://wqskoumofxt2"
+config/icon="uid://bbiykrk8vdqdj"
 boot_splash/minimum_display_time=3000
 
 [autoload]
