@@ -113,7 +113,6 @@ vertical_alignment = 1
 
 [node name="ButtonsContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 
 [node name="Restart" type="Button" parent="CenterContainer/VBoxContainer/ButtonsContainer"]
 layout_mode = 2
@@ -126,6 +125,13 @@ layout_mode = 2
 theme = SubResource("Theme_diun8")
 theme_override_font_sizes/font_size = 86
 text = "Menu"
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Thank you for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VHS" type="ColorRect" parent="."]
 visible = false
