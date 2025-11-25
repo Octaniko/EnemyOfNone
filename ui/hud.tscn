@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cku7k5y7qya4u" path="res://ui/object_counter.gd" id="1_7ihmi"]
 [ext_resource type="Script" uid="uid://duc5y5dtk81w7" path="res://ui/level_timer_container.gd" id="2_546lt"]
 [ext_resource type="Script" uid="uid://h8c3pnh3w2is" path="res://ui/unit_counter.gd" id="3_en2x2"]
-[ext_resource type="Texture2D" uid="uid://bh01vvrr5wr6u" path="res://assets/icons/unit.png" id="4_7ihmi"]
+[ext_resource type="Texture2D" uid="uid://bbiykrk8vdqdj" path="res://assets/icons/unit_icon.png" id="4_7ihmi"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -92,7 +92,7 @@ text = "20/23/43"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="UnitCounterContainer"]
-custom_minimum_size = Vector2(158.57, 0)
+custom_minimum_size = Vector2(179.42, 0)
 layout_mode = 2
 texture = ExtResource("4_7ihmi")
 expand_mode = 1

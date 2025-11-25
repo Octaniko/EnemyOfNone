@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://dxw7qtua04j2n"]
 
 [ext_resource type="Shader" uid="uid://dptgn8t6jmiik" path="res://assets/shaders/dithering.gdshader" id="2_ob46e"]
-[ext_resource type="VideoStream" uid="uid://cx56xwvk4qpul" path="res://assets/images/RuinAnimated0001-0025 (1).ogv" id="3_d6m5w"]
+[ext_resource type="VideoStream" uid="uid://dxro8v3ijegcl" path="res://assets/images/main_menu_loop.ogv" id="2_uwqft"]
+[ext_resource type="VideoStream" uid="uid://cx56xwvk4qpul" path="res://assets/images/main_menu_intro.ogv" id="3_hkpjj"]
 [ext_resource type="Script" uid="uid://1w6i0axq4qb8" path="res://scenes/levels/main_menu/main_menu.gd" id="3_ob46e"]
-[ext_resource type="VideoStream" uid="uid://dxro8v3ijegcl" path="res://assets/images/RuinStandFIX.ogv" id="3_vesay"]
 [ext_resource type="Theme" uid="uid://4m7a8n1anu0j" path="res://assets/themes/main_menu.tres" id="4_hkpjj"]
 [ext_resource type="Shader" uid="uid://q3w8b3i4m26u" path="res://assets/shaders/vhs.gdshader" id="4_uwqft"]
 
@@ -57,7 +57,7 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 1440.0
 offset_bottom = 1080.0
-stream = ExtResource("3_vesay")
+stream = ExtResource("2_uwqft")
 autoplay = true
 expand = true
 loop = true
@@ -66,7 +66,7 @@ loop = true
 layout_mode = 0
 offset_right = 1440.0
 offset_bottom = 1080.0
-stream = ExtResource("3_d6m5w")
+stream = ExtResource("3_hkpjj")
 autoplay = true
 expand = true
 
