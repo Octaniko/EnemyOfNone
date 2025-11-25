@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b3yfwj6ilacco"]
 
-[ext_resource type="Script" uid="uid://dn2ulmj0un4yq" path="res://scenes/objects/spawner.gd" id="1_lkrw2"]
+[ext_resource type="Script" uid="uid://dn2ulmj0un4yq" path="res://scenes/objects/spawner/spawner.gd" id="1_lkrw2"]
 [ext_resource type="Shader" uid="uid://biymf17lmuqph" path="res://assets/shaders/circle_progress_bar.gdshader" id="2_iuj7d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lkrw2"]

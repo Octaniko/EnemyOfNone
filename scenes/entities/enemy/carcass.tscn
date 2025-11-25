@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://nv786svhfpre"]
+[gd_scene load_steps=15 format=3 uid="uid://nv786svhfpre"]
 
 [ext_resource type="Script" uid="uid://vwcvdgfk0iax" path="res://scenes/objects/carryables/carryable.gd" id="1_n22ip"]
 [ext_resource type="Texture2D" uid="uid://1leh6kw45fh" path="res://scenes/entities/enemy/enemy-Sheet.png" id="1_rypx4"]
-[ext_resource type="Texture2D" uid="uid://ddu0b40pk08ac" path="res://scenes/entities/enemy/slime_green.png" id="2_ey83x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddkys"]
 atlas = ExtResource("1_rypx4")
@@ -27,18 +26,6 @@ region = Rect2(108, 48, 27, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ilesx"]
 atlas = ExtResource("1_rypx4")
 region = Rect2(0, 96, 27, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d50e0"]
-atlas = ExtResource("2_ey83x")
-region = Rect2(24, 48, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_61ikd"]
-atlas = ExtResource("2_ey83x")
-region = Rect2(48, 48, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eaj7m"]
-atlas = ExtResource("2_ey83x")
-region = Rect2(72, 48, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jkr0c"]
 atlas = ExtResource("1_rypx4")
@@ -84,20 +71,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d50e0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_61ikd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eaj7m")
-}],
-"loop": true,
-"name": &"hurt",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_jkr0c")
 }],
 "loop": true,
@@ -130,7 +103,7 @@ required_units = 5
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["enemies"]]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_q77wx")
-animation = &"die"
+animation = &"attack"
 autoplay = "die"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

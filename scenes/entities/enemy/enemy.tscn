@@ -1,7 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://kfgm162v1xgt"]
+[gd_scene load_steps=26 format=3 uid="uid://kfgm162v1xgt"]
 
 [ext_resource type="Script" uid="uid://cs05woliwjw83" path="res://scenes/entities/enemy/enemy.gd" id="1_dt443"]
-[ext_resource type="Texture2D" uid="uid://ddu0b40pk08ac" path="res://scenes/entities/enemy/slime_green.png" id="1_ksmh7"]
 [ext_resource type="Script" uid="uid://bcneufwksqfqs" path="res://scenes/entities/enemy/states/enemy_idle.gd" id="2_3fvr7"]
 [ext_resource type="PackedScene" uid="uid://nv786svhfpre" path="res://scenes/entities/enemy/carcass.tscn" id="2_h26p2"]
 [ext_resource type="Texture2D" uid="uid://1leh6kw45fh" path="res://scenes/entities/enemy/enemy-Sheet.png" id="2_ilesx"]
@@ -35,14 +34,6 @@ region = Rect2(108, 48, 27, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ilesx"]
 atlas = ExtResource("2_ilesx")
 region = Rect2(0, 96, 27, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_61ikd"]
-atlas = ExtResource("1_ksmh7")
-region = Rect2(48, 48, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eaj7m"]
-atlas = ExtResource("1_ksmh7")
-region = Rect2(72, 48, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jkr0c"]
 atlas = ExtResource("2_ilesx")
@@ -88,17 +79,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_61ikd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eaj7m")
-}],
-"loop": true,
-"name": &"hurt",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_jkr0c")
 }],
 "loop": true,
@@ -118,7 +98,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ilesx"]
-radius = 82.1523
+radius = 12.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ilesx"]
 radius = 9.0
@@ -151,8 +131,6 @@ position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_dt443")
 animation = &"attack"
 autoplay = "idle"
-frame = 4
-frame_progress = 1.0
 
 [node name="HitBox" type="Area2D" parent="AnimatedSprite2D"]
 position = Vector2(0, 16)
@@ -219,6 +197,7 @@ script = ExtResource("5_4wwj3")
 idle_state = NodePath("../Idle")
 attack_state = NodePath("../Attack")
 animation_name = "move"
+move_speed = 50.0
 
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("follow_state")]
 script = ExtResource("11_8ei1b")
