@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2by5g8cddlku"
-path="res://.godot/imported/unit14.png-d12b98ec090e91844f272e2d3b2e8814.ctex"
+uid="uid://l84in5ilq6no"
+path="res://.godot/imported/ImgJopik (1).png-08875d71912256ec98df18bb2989816f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/unit14.png"
-dest_files=["res://.godot/imported/unit14.png-d12b98ec090e91844f272e2d3b2e8814.ctex"]
+source_file="res://assets/icons/ImgJopik (1).png"
+dest_files=["res://.godot/imported/ImgJopik (1).png-08875d71912256ec98df18bb2989816f.ctex"]
 
 [params]
 

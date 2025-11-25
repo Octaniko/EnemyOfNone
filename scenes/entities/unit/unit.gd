@@ -55,4 +55,5 @@ func take_damage(amount: int) -> void:
 		die()
 
 func die() -> void:
+	get_tree().call_group("unit_manager", "on_unit_died")
 	queue_free()

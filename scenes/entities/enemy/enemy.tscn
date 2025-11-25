@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://kfgm162v1xgt"]
+[gd_scene load_steps=30 format=3 uid="uid://kfgm162v1xgt"]
 
 [ext_resource type="Script" uid="uid://cs05woliwjw83" path="res://scenes/entities/enemy/enemy.gd" id="1_dt443"]
 [ext_resource type="Texture2D" uid="uid://ddu0b40pk08ac" path="res://scenes/entities/enemy/slime_green.png" id="1_ksmh7"]
@@ -10,26 +10,7 @@
 [ext_resource type="Script" uid="uid://cnidyixhicbfn" path="res://scripts/hitbox.gd" id="4_ddkys"]
 [ext_resource type="Script" uid="uid://cbq6v6vodyt1i" path="res://scenes/entities/enemy/states/enemy_follow.gd" id="5_4wwj3"]
 [ext_resource type="Shader" uid="uid://biymf17lmuqph" path="res://assets/shaders/circle_progress_bar.gdshader" id="7_7gxlw"]
-
-[sub_resource type="Animation" id="Animation_0wdte"]
-resource_name = "attack"
-
-[sub_resource type="Animation" id="Animation_7gxlw"]
-resource_name = "hurt"
-
-[sub_resource type="Animation" id="Animation_ilesx"]
-resource_name = "idle"
-
-[sub_resource type="Animation" id="Animation_ddkys"]
-resource_name = "move"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_h26p2"]
-_data = {
-&"attack": SubResource("Animation_0wdte"),
-&"hurt": SubResource("Animation_7gxlw"),
-&"idle": SubResource("Animation_ilesx"),
-&"move": SubResource("Animation_ddkys")
-}
+[ext_resource type="Script" uid="uid://btp8i2hvvpwgb" path="res://scenes/entities/enemy/states/enemy_attack.gd" id="11_8ei1b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddkys"]
 atlas = ExtResource("2_ilesx")
@@ -172,15 +153,10 @@ script = ExtResource("1_dt443")
 carcass_scene = ExtResource("2_h26p2")
 max_health = 100
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_h26p2")
-}
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["enemies"]]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_dt443")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="HitBox" type="Area2D" parent="AnimatedSprite2D"]
@@ -215,7 +191,7 @@ shape = SubResource("CircleShape2D_721x4")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 5.0
-target_desired_distance = 5.0
+target_desired_distance = 92.25
 path_postprocessing = 1
 debug_use_custom = true
 debug_path_custom_color = Color(0, 1, 1, 1)
@@ -243,10 +219,16 @@ script = ExtResource("2_3fvr7")
 follow_state = NodePath("../Follow")
 animation_name = "idle"
 
-[node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+[node name="Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "attack_state")]
 script = ExtResource("5_4wwj3")
 idle_state = NodePath("../Idle")
+attack_state = NodePath("../Attack")
 animation_name = "move"
+
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("11_8ei1b")
+idle_state = NodePath("../Idle")
+animation_name = "attack"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

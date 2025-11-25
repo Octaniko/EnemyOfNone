@@ -1,11 +1,13 @@
 extends State
 
+@export var idle_state: State
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@onready var hitbox: HitBox = $"../../AnimatedSprite2D/HitBox"
 
+func enter():
+	super()
+	animations.play(animation_name)
+	hitbox.set_deferred("monitorable", true)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func exit():
+	hitbox.set_deferred("monitorable", false)

@@ -1,9 +1,11 @@
 extends State
+class_name EnemyIdle
 
 @export var follow_state: State
 
 func enter() -> void:
 	super()
+	animations.play(animation_name)
 	parent.velocity = Vector2.ZERO
 
 func process_physics(delta: float) -> State:

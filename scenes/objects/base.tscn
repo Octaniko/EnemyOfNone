@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cmg4tb767xx6l" path="res://scenes/objects/base.gd" id="1_fyxcq"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4h7lf"]
-radius = 24.083189
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyxcq"]
+size = Vector2(27, 27)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4h7lf"]
 
@@ -13,10 +13,12 @@ script = ExtResource("1_fyxcq")
 [node name="DestinationArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestinationArea"]
-shape = SubResource("CircleShape2D_4h7lf")
+shape = SubResource("RectangleShape2D_fyxcq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(53.025, 53.025)
+visible = false
+position = Vector2(-2.3841858e-07, -2.3841858e-07)
+scale = Vector2(25.25625, 25.25625)
 texture = SubResource("PlaceholderTexture2D_4h7lf")
 
 [connection signal="body_entered" from="DestinationArea" to="." method="_on_destination_area_body_entered"]

@@ -212,9 +212,10 @@ follow_state = NodePath("../Follow")
 attach_state = NodePath("../Attach")
 animation_name = "idle"
 
-[node name="Attach" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+[node name="Attach" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "follow_state")]
 script = ExtResource("8_jxw44")
 idle_state = NodePath("../Idle")
+follow_state = NodePath("../Follow")
 animation_name = "carry"
 
 [connection signal="body_entered" from="DetectionArea" to="StateMachine/Rush" method="_on_detection_area_body_entered"]

@@ -44,3 +44,6 @@ func get_active() -> int:
 func add_units_emergency():
 	units_reserved += 2
 	_emit_units_changed()
+
+func on_unit_died():
+	_emit_units_changed()

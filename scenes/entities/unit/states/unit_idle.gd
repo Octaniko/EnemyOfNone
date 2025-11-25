@@ -2,7 +2,6 @@ extends State
 
 @export var follow_state: State = null
 @export var attach_state: State = null
-@export var attack_state: State = null
 @export var search_time := 0.01
 
 @onready var detection_area: Area2D = $"../../DetectionArea"

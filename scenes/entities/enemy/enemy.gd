@@ -60,6 +60,7 @@ func _spawn_carcass():
 		return
 	var carcass_instance = carcass_scene.instantiate()
 	carcass_instance.global_position = global_position
+	carcass_instance.velocity = Vector2.ZERO
 	get_tree().current_scene.add_child(carcass_instance)
 
 func _update_health_bar() -> void:
