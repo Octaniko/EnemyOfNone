@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @export var movement_speed := 200.0
 @export var health := 1
-@export var step_interval: float = 0.15
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
@@ -14,7 +13,6 @@ var interactables: Array[Node2D] = []
 var last_player_input: Vector2 = Vector2.UP
 var player: CharacterBody2D
 var follow_point: Node2D
-var step_timer: float = 0.0
 
 func _ready() -> void:
 	player = get_tree().get_nodes_in_group("player")[0]
@@ -27,16 +25,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
-	var current_speed = navigation_agent_2d.velocity.length()
 
-	if current_speed > 5.0:
-		step_timer -= delta
-		if step_timer <= 0.0:
-			AudioManager.create_2d_audio_at_location(global_position, SoundEffect.SOUND_EFFECT_TYPE.UNIT_WALK)
-			step_timer = step_interval
-	else:
-		step_timer = 0.0
-		
 func _input(event: InputEvent) -> void:
 	var new_state = state_machine.current_state.process_input(event)
 	if new_state:

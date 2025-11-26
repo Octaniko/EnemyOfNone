@@ -8,4 +8,4 @@ script = ExtResource("1_rjqpd")
 limit = 3
 type = 2
 sound_effect = ExtResource("2_r52de")
-pitch_randomness = 0.21
+pitch_randomness = 0.14

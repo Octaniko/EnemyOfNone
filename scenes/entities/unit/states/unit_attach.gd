@@ -6,7 +6,9 @@ class_name UnitAttach
 @export var idle_state: State = null
 @export var follow_state: State = null
 @export var follow_speed: float = 200.0
+@export var carry_step_interval: float = 0.5
 
+var carry_step_timer: float = 0.0
 var attach_target: Node2D = null
 
 func set_target(body: Node2D) -> void:
@@ -45,7 +47,14 @@ func process_physics(delta: float) -> State:
 	parent.move_and_slide()
 
 	parent.animations.flip_h = parent.velocity.x < 0
-	animations.play(animation_name)
+	var speed = parent.velocity.length()
+	if speed > 5.0:
+		carry_step_timer -= delta
+		if carry_step_timer <= 0.0:
+			AudioManager.create_2d_audio_at_location(parent.global_position, SoundEffect.SOUND_EFFECT_TYPE.UNIT_CARRY)
+			carry_step_timer = carry_step_interval
+	else:
+		carry_step_timer = 0.0
 
 	return null
 

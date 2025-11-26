@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://dw5yuu6ks15f8"]
+
+[ext_resource type="Script" uid="uid://dtq3taxvwwv22" path="res://assets/sounds/audio_manager/sound_effect.gd" id="1_qsjr7"]
+[ext_resource type="AudioStream" uid="uid://b0gvqnkitjs1s" path="res://scenes/entities/player/dismiss1.mp3" id="2_7tkre"]
+
+[resource]
+script = ExtResource("1_qsjr7")
+limit = 0
+type = 7
+sound_effect = ExtResource("2_7tkre")
+metadata/_custom_type_script = "uid://dtq3taxvwwv22"

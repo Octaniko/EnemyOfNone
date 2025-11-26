@@ -1,12 +1,11 @@
 [gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://bwgqetpyubkod"]
 
 [ext_resource type="Script" uid="uid://dtq3taxvwwv22" path="res://assets/sounds/audio_manager/sound_effect.gd" id="1_gm4j7"]
-[ext_resource type="AudioStream" uid="uid://dy3iok2x0ru70" path="res://scenes/entities/unit/sounds/Stone 2.wav" id="2_tm4ey"]
+[ext_resource type="AudioStream" uid="uid://m68edbv0qi03" path="res://scenes/entities/unit/sounds/Sand 1.wav" id="2_tm4ey"]
 
 [resource]
 script = ExtResource("1_gm4j7")
-limit = 8
+limit = 3
 sound_effect = ExtResource("2_tm4ey")
-pitch_scale = 2.2
-pitch_randomness = 0.54
+pitch_randomness = 0.11
 metadata/_custom_type_script = "uid://dtq3taxvwwv22"
