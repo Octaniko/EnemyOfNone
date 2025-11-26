@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://srlmnfge160e"]
+[gd_scene load_steps=40 format=4 uid="uid://srlmnfge160e"]
 
 [ext_resource type="Script" uid="uid://bxwgngq6tdat0" path="res://scripts/game_controller.gd" id="1_xidr1"]
 [ext_resource type="Shader" uid="uid://c7hqetjmaq3p4" path="res://assets/shaders/chromatic_aberration.gdshader" id="2_8c33x"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b3yfwj6ilacco" path="res://scenes/objects/spawner/spawner.tscn" id="17_pj0xw"]
 [ext_resource type="AudioStream" uid="uid://c7qtukmr2qi6g" path="res://assets/sounds/ambient/467418__klankbeeld__kampina-forest-spring007-190322_1321.wav" id="20_jtmcs"]
 [ext_resource type="AudioStream" uid="uid://ctk72w7nt4ax4" path="res://assets/sounds/ambient/678346__msx2plus__generator-01-seamless.wav" id="21_8cjxf"]
+[ext_resource type="AudioStream" uid="uid://b5nqv8af60eqo" path="res://assets/sounds/ambient/Undertale Unreleased OSTWaterfall Ambiance - antwon369 (youtube).mp3" id="22_3lsws"]
 [ext_resource type="AudioStream" uid="uid://bcrk888j4dm04" path="res://assets/sounds/ambient/wind.mp3" id="22_jtmcs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i7141"]
@@ -1560,6 +1561,14 @@ bus = &"Ambient"
 position = Vector2(388, -207)
 stream = ExtResource("21_8cjxf")
 volume_db = -17.504
+autoplay = true
+max_distance = 300.0
+bus = &"Ambient"
+
+[node name="Water" type="AudioStreamPlayer2D" parent="AmbientContainer"]
+position = Vector2(-177, -490)
+stream = ExtResource("22_3lsws")
+volume_db = 5.465
 autoplay = true
 max_distance = 300.0
 bus = &"Ambient"
