@@ -45,5 +45,9 @@ func add_units_emergency():
 	units_reserved += 1
 	_emit_units_changed()
 
+func add_units_enemy():
+	units_reserved += 2
+	_emit_units_changed()
+
 func on_unit_died():
 	_emit_units_changed()

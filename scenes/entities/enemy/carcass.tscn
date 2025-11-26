@@ -96,7 +96,7 @@ height = 20.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_n22ip"]
 radius = 25.179358
 
-[node name="Carcass" type="CharacterBody2D" groups=["carryable", "interactable"]]
+[node name="Carcass" type="CharacterBody2D" groups=["carryable", "enemies", "interactable"]]
 script = ExtResource("1_n22ip")
 required_units = 4
 

@@ -8,6 +8,8 @@ const MUSIC_TRACKS = [
 	preload("res://assets/music/36 - BIT ROOTS.mp3"),
 	preload("res://assets/music/35 - GLACEIR.mp3"),
 	preload("res://assets/music/BC 080 Awakening Wood (Olimar) .mp3"),
+	preload("res://assets/music/BC 08. The Forest Navel.mp3"),
+	preload("res://assets/music/BC 09. The Distant Spring.mp3"),
 ]
 
 var playlist = []

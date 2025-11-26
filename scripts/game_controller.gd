@@ -8,8 +8,12 @@ var interactables_total := 0
 var interactables_collected := 0
 
 func _ready() -> void:
-	interactables_total = get_tree().get_nodes_in_group("interactable").size()
-
+	var all_interactables = get_tree().get_nodes_in_group("interactable")
+	var filtered := []
+	for node in all_interactables:
+		if not node.is_in_group("enemies"):
+			filtered.append(node)
+	interactables_total = filtered.size()
 	var result = Global.connect("interactable_collected", Callable(self, "_on_interactable_collected"))
 
 	call_deferred("_emit_initial_update")
