@@ -97,6 +97,7 @@ theme_override_font_sizes/font_size = 61
 text = "Play"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("4_hkpjj")
 theme_override_font_sizes/font_size = 61
