@@ -7,10 +7,8 @@ extends Control
 const WORLD = preload("res://scenes/levels/world.tscn")
 
 func _ready() -> void:
-	AudioServer.set_bus_volume_db(
-		AudioServer.get_bus_index("Master"),
-		volume_slider.value
-	)
+	volume_slider.value = Global.master_volume_db
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume_slider.value)
 
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_packed(WORLD)
@@ -22,7 +20,5 @@ func _on_intro_finished() -> void:
 	intro.visible = false
 
 func _on_h_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(
-		AudioServer.get_bus_index("Master"),
-		value
-	)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+	Global.master_volume_db = value
