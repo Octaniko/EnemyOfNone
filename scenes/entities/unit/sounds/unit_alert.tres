@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://d1m8a0vw83jbp"]
+
+[ext_resource type="Script" uid="uid://dtq3taxvwwv22" path="res://assets/sounds/audio_manager/sound_effect.gd" id="1_ofkul"]
+[ext_resource type="AudioStream" uid="uid://cdcox3b3twooy" path="res://scenes/entities/unit/sounds/call_BsqlQcP.mp3" id="2_od74i"]
+
+[resource]
+script = ExtResource("1_ofkul")
+limit = 3
+type = 8
+sound_effect = ExtResource("2_od74i")
+pitch_randomness = 0.1
+metadata/_custom_type_script = "uid://dtq3taxvwwv22"

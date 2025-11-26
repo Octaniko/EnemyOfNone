@@ -20,6 +20,7 @@ func enter() -> void:
 	super()
 	move_speed = follow_speed
 	animations.play(animation_name)
+	AudioManager.create_2d_audio_at_location(parent.global_position, SoundEffect.SOUND_EFFECT_TYPE.UNIT_ALERT)
 	_update_navigation_target()
 
 func _update_navigation_target() -> void:

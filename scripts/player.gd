@@ -31,3 +31,5 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("recall"):
 		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RECALL)
+	if Input.is_action_just_pressed("rush"):
+		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.RUSH)

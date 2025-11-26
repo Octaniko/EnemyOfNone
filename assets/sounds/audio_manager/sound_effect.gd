@@ -9,7 +9,8 @@ enum SOUND_EFFECT_TYPE {
 	ENEMY_WALK,
 	ENEMY_DIE,
 	RUSH,
-	RECALL
+	RECALL,
+	UNIT_ALERT
 }
 
 @export_range(0, 10) var limit: int = 5
