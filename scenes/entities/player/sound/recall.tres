@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://dw5yuu6ks15f8"]
 
-[ext_resource type="Script" uid="uid://dtq3taxvwwv22" path="res://assets/sounds/audio_manager/sound_effect.gd" id="1_qsjr7"]
-[ext_resource type="AudioStream" uid="uid://b0gvqnkitjs1s" path="res://scenes/entities/player/sound/dismiss1.mp3" id="2_7tkre"]
+[ext_resource type="Script" uid="uid://dtq3taxvwwv22" path="res://assets/sounds/audio_manager/sound_effect.gd" id="1_cbeeq"]
+[ext_resource type="AudioStream" uid="uid://cuqqpyfsx5dah" path="res://scenes/entities/player/sound/whistleloop.mp3" id="2_cbeeq"]
 
 [resource]
-script = ExtResource("1_qsjr7")
+script = ExtResource("1_cbeeq")
 type = 7
-sound_effect = ExtResource("2_7tkre")
+sound_effect = ExtResource("2_cbeeq")
+volume = -8.411000000000001
 metadata/_custom_type_script = "uid://dtq3taxvwwv22"

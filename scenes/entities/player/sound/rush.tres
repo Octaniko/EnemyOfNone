@@ -1,7 +1,11 @@
-[gd_resource type="Resource" script_class="SoundEffect" load_steps=2 format=3 uid="uid://bavtwo6jlff4f"]
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://bavtwo6jlff4f"]
 
 [ext_resource type="Script" uid="uid://dtq3taxvwwv22" path="res://assets/sounds/audio_manager/sound_effect.gd" id="1_mn5a2"]
+[ext_resource type="AudioStream" uid="uid://b0gvqnkitjs1s" path="res://scenes/entities/player/sound/dismiss1.mp3" id="2_glw8l"]
 
 [resource]
 script = ExtResource("1_mn5a2")
+type = 6
+sound_effect = ExtResource("2_glw8l")
+volume = -8.411000000000001
 metadata/_custom_type_script = "uid://dtq3taxvwwv22"

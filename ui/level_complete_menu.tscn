@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c25ikmiuhm14x"]
+[gd_scene load_steps=11 format=3 uid="uid://c25ikmiuhm14x"]
 
 [ext_resource type="Script" uid="uid://cs8quwli548o8" path="res://ui/level_complete_menu.gd" id="1_m7ugh"]
 [ext_resource type="Texture2D" uid="uid://cgcd3gpgnvl8f" path="res://assets/images/outro.png" id="2_m7ugh"]
 [ext_resource type="Shader" uid="uid://q3w8b3i4m26u" path="res://assets/shaders/vhs.gdshader" id="3_msoao"]
+[ext_resource type="AudioStream" uid="uid://d10e77l2phybh" path="res://assets/sounds/mission-complete-pikmin-4.mp3" id="4_p38f5"]
+[ext_resource type="AudioStream" uid="uid://c41w4js1hucuv" path="res://assets/sounds/major-mission-complete-pikmin-4.mp3" id="5_6scbh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ksed3"]
 
@@ -55,7 +57,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.5058824)
+color = Color(0, 0, 0, 0.7764706)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -145,8 +147,12 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="LevelCompleteSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_p38f5")
+bus = &"Music"
 
 [node name="NewRecordSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6scbh")
+bus = &"Music"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonsContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonsContainer/Menu" to="." method="_on_menu_pressed"]

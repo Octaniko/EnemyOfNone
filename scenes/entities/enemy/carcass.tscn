@@ -98,7 +98,7 @@ radius = 25.179358
 
 [node name="Carcass" type="CharacterBody2D" groups=["carryable", "interactable"]]
 script = ExtResource("1_n22ip")
-required_units = 5
+required_units = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["enemies"]]
 position = Vector2(0, -24)

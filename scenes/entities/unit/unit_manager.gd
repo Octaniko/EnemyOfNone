@@ -12,7 +12,7 @@ func _ready() -> void:
 	Global.interactable_collected.connect(Callable(self, "_on_interactable_collected"))
 
 func _on_interactable_collected():
-	units_reserved += 1
+	units_reserved += 2
 	_emit_units_changed()
 
 func _process(delta: float) -> void:
