@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://dekpgwxnd44xh"]
+
+[ext_resource type="Script" uid="uid://dtq3taxvwwv22" path="res://assets/sounds/audio_manager/sound_effect.gd" id="1_oxlom"]
+[ext_resource type="AudioStream" uid="uid://dvofimvew1hvf" path="res://scenes/objects/base/pellet-posy.mp3" id="2_v3dlu"]
+
+[resource]
+script = ExtResource("1_oxlom")
+type = 9
+sound_effect = ExtResource("2_v3dlu")
+metadata/_custom_type_script = "uid://dtq3taxvwwv22"

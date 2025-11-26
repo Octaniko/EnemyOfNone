@@ -8,3 +8,4 @@ func _on_destination_area_body_entered(body: Node2D) -> void:
 		else:
 			Global.emit_signal("interactable_collected")
 		body.queue_free()
+		AudioManager.create_audio(SoundEffect.SOUND_EFFECT_TYPE.DELIVERY)

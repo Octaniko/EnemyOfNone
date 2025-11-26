@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://uoh7gbgqrlrw"]
+[gd_scene load_steps=11 format=3 uid="uid://uoh7gbgqrlrw"]
 
 [ext_resource type="Script" uid="uid://uvmf2blk2vcr" path="res://assets/sounds/audio_manager/audio_manager.gd" id="1_qqohl"]
 [ext_resource type="Script" uid="uid://dtq3taxvwwv22" path="res://assets/sounds/audio_manager/sound_effect.gd" id="2_jjy3v"]
@@ -9,7 +9,8 @@
 [ext_resource type="Resource" uid="uid://d1m8a0vw83jbp" path="res://scenes/entities/unit/sounds/unit_alert.tres" id="7_qv88p"]
 [ext_resource type="Resource" uid="uid://bwgqetpyubkod" path="res://scenes/entities/unit/sounds/unit_walk.tres" id="8_qv88p"]
 [ext_resource type="Resource" uid="uid://bavtwo6jlff4f" path="res://scenes/entities/player/sound/rush.tres" id="9_8381u"]
+[ext_resource type="Resource" uid="uid://dekpgwxnd44xh" path="res://scenes/objects/base/delivery.tres" id="10_ti262"]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_qqohl")
-sound_effects = Array[ExtResource("2_jjy3v")]([ExtResource("3_bx24f"), ExtResource("4_aeaqy"), ExtResource("6_e2bio"), ExtResource("7_6p4qe"), ExtResource("7_qv88p"), ExtResource("8_qv88p"), ExtResource("9_8381u")])
+sound_effects = Array[ExtResource("2_jjy3v")]([ExtResource("3_bx24f"), ExtResource("4_aeaqy"), ExtResource("6_e2bio"), ExtResource("7_6p4qe"), ExtResource("7_qv88p"), ExtResource("8_qv88p"), ExtResource("9_8381u"), ExtResource("10_ti262")])

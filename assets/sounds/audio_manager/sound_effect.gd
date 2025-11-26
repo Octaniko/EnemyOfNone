@@ -10,7 +10,8 @@ enum SOUND_EFFECT_TYPE {
 	ENEMY_DIE,
 	RUSH,
 	RECALL,
-	UNIT_ALERT
+	UNIT_ALERT,
+	DELIVERY
 }
 
 @export_range(0, 10) var limit: int = 5
