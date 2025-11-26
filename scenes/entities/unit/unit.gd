@@ -12,6 +12,8 @@ var interactables: Array[Node2D] = []
 var last_player_input: Vector2 = Vector2.UP
 var player: CharacterBody2D
 var follow_point: Node2D
+var walk_timer := 0.0
+var walk_interval := 0.3
 
 func _ready() -> void:
 	player = get_tree().get_nodes_in_group("player")[0]
@@ -24,6 +26,16 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
+	_play_walk_sound_timer(delta)
+	
+func _play_walk_sound_timer(delta: float) -> void:
+	if velocity.length() > 0.1:
+		walk_timer -= delta
+		if walk_timer <= 0.0:
+			AudioManager.create_2d_audio_at_location(global_position, SoundEffect.SOUND_EFFECT_TYPE.UNIT_WALK)
+			walk_timer = walk_interval
+	else:
+		walk_timer = 0.0
 
 func _input(event: InputEvent) -> void:
 	var new_state = state_machine.current_state.process_input(event)

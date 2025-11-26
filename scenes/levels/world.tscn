@@ -1340,7 +1340,6 @@ script = ExtResource("2_btahq")
 visible = false
 
 [node name="ShaderOverlay" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ChromaticAberration" type="ColorRect" parent="ShaderOverlay"]
 visible = false
