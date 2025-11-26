@@ -7,7 +7,6 @@ extends CharacterBody2D
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detection_area: Area2D = $DetectionArea
 @onready var state_machine: Node = $StateMachine
-@onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
 var interactables: Array[Node2D] = []
 var last_player_input: Vector2 = Vector2.UP
