@@ -53,10 +53,7 @@ func take_damage(amount: int) -> void:
 		die()
 
 func die() -> void:
-	death_sound.play()
-	death_sound.connect("finished", Callable(self, "_on_death_sound_finished"))
-
-func _on_death_sound_finished() -> void:
+	AudioManager.create_2d_audio_at_location(global_position, SoundEffect.SOUND_EFFECT_TYPE.ENEMY_DIE)
 	_spawn_carcass()
 	queue_free()
 

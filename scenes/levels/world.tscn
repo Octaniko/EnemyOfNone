@@ -19,9 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://nv786svhfpre" path="res://scenes/entities/enemy/carcass.tscn" id="13_pj0xw"]
 [ext_resource type="PackedScene" uid="uid://d0uns3g334aex" path="res://scenes/objects/carryables/carryable.tscn" id="13_rny25"]
 [ext_resource type="PackedScene" uid="uid://b3yfwj6ilacco" path="res://scenes/objects/spawner/spawner.tscn" id="17_pj0xw"]
-[ext_resource type="AudioStream" uid="uid://c7qtukmr2qi6g" path="res://assets/sounds/467418__klankbeeld__kampina-forest-spring007-190322_1321.wav" id="20_jtmcs"]
-[ext_resource type="AudioStream" uid="uid://ctk72w7nt4ax4" path="res://assets/sounds/678346__msx2plus__generator-01-seamless.wav" id="21_8cjxf"]
-[ext_resource type="AudioStream" uid="uid://bcrk888j4dm04" path="res://assets/sounds/wind.mp3" id="22_jtmcs"]
+[ext_resource type="AudioStream" uid="uid://c7qtukmr2qi6g" path="res://assets/sounds/ambient/467418__klankbeeld__kampina-forest-spring007-190322_1321.wav" id="20_jtmcs"]
+[ext_resource type="AudioStream" uid="uid://ctk72w7nt4ax4" path="res://assets/sounds/ambient/678346__msx2plus__generator-01-seamless.wav" id="21_8cjxf"]
+[ext_resource type="AudioStream" uid="uid://bcrk888j4dm04" path="res://assets/sounds/ambient/wind.mp3" id="22_jtmcs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i7141"]
 shader = ExtResource("2_8c33x")

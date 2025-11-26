@@ -22,7 +22,7 @@ boot_splash/minimum_display_time=3000
 
 Global="*res://scripts/global.gd"
 RecordManager="*res://scripts/record_manager.gd"
-AudioManager="*res://scripts/AudioManager.tscn"
+AudioManager="*res://assets/sounds/audio_manager/AudioManager.tscn"
 
 [display]
 

@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detection_area: Area2D = $DetectionArea
 @onready var state_machine: Node = $StateMachine
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
 var interactables: Array[Node2D] = []
 var last_player_input: Vector2 = Vector2.UP
@@ -55,5 +56,6 @@ func take_damage(amount: int) -> void:
 		die()
 
 func die() -> void:
+	AudioManager.create_2d_audio_at_location(global_position, SoundEffect.SOUND_EFFECT_TYPE.UNIT_DIE)
 	get_tree().call_group("unit_manager", "on_unit_died")
 	queue_free()

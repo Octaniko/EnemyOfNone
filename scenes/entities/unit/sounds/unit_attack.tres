@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundEffect" load_steps=3 format=3 uid="uid://b4v11eech41vt"]
+
+[ext_resource type="Script" uid="uid://dtq3taxvwwv22" path="res://assets/sounds/audio_manager/sound_effect.gd" id="1_xp41n"]
+[ext_resource type="AudioStream" uid="uid://dhb0dr84vslmr" path="res://scenes/entities/unit/sounds/attack1.mp3" id="2_e1i3q"]
+
+[resource]
+script = ExtResource("1_xp41n")
+type = 2
+sound_effect = ExtResource("2_e1i3q")
+pitch_randomness = 0.5
+metadata/_custom_type_script = "uid://dtq3taxvwwv22"

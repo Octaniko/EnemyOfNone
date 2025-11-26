@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cn0df6p1m8or6"]
+[gd_scene load_steps=31 format=3 uid="uid://cn0df6p1m8or6"]
 
 [ext_resource type="Script" uid="uid://1qdt460u3kds" path="res://scenes/entities/unit/unit.gd" id="1_o7ajc"]
 [ext_resource type="Texture2D" uid="uid://ild172fbqx74" path="res://scenes/entities/unit/unit-Sheet.png" id="2_jxw44"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://cdf8sjqwe34y2" path="res://scenes/entities/unit/states/unit_idle.gd" id="6_wi85q"]
 [ext_resource type="Script" uid="uid://cnidyixhicbfn" path="res://scripts/hitbox.gd" id="8_bbfwi"]
 [ext_resource type="Script" uid="uid://dbsx0lql6561h" path="res://scenes/entities/unit/states/unit_attach.gd" id="8_jxw44"]
+[ext_resource type="AudioStream" uid="uid://dhb0dr84vslmr" path="res://scenes/entities/unit/sounds/attack1.mp3" id="10_ksvj2"]
+[ext_resource type="AudioStream" uid="uid://d4ip0sawfuskv" path="res://scenes/entities/unit/sounds/death2.mp3" id="11_qkihe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bbfwi"]
 atlas = ExtResource("2_jxw44")
@@ -217,6 +219,15 @@ script = ExtResource("8_jxw44")
 idle_state = NodePath("../Idle")
 follow_state = NodePath("../Follow")
 animation_name = "carry"
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_ksvj2")
+volume_db = -20.594
+bus = &"Sounds"
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_qkihe")
+volume_db = -30.891
 
 [connection signal="body_entered" from="DetectionArea" to="StateMachine/Rush" method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="StateMachine/Idle" method="_on_detection_area_body_entered"]
