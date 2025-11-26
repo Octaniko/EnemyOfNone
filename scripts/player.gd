@@ -19,13 +19,11 @@ func _physics_process(delta):
 		follow_point.position = -direction * follow_distance
 		cursor.position = direction * follow_distance
 
-	# --- АНИМАЦИИ ПО СКОРОСТИ ---
-	if direction.length() > 5: # скорость почти не нулевая
+	if direction.length() > 5:
 		animations.play("move")
 	else:
 		animations.play("idle")
 
-	# --- ФЛИП ПО Х ---
 	if direction.x > 0:
 		animations.flip_h = false
 	elif direction.x < 0:

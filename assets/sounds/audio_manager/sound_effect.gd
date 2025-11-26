@@ -2,7 +2,6 @@ extends Resource
 class_name SoundEffect
 
 enum SOUND_EFFECT_TYPE {
-	PLAYER_WALK,
 	UNIT_WALK,
 	UNIT_ATTACK,
 	UNIT_DIE,
@@ -19,6 +18,7 @@ enum SOUND_EFFECT_TYPE {
 @export_range(-40, 20) var volume: float = 0
 @export_range(0.0, 4.0, 0.01) var pitch_scale: float = 1.0
 @export_range(0.0, 1.0, 0.01) var pitch_randomness: float = 0.0
+@export var bus: String = "Sounds" # по умолчанию Master
 
 var audio_count: int = 0
 

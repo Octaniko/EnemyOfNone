@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://uoh7gbgqrlrw"]
+[gd_scene load_steps=6 format=3 uid="uid://uoh7gbgqrlrw"]
 
 [ext_resource type="Script" uid="uid://uvmf2blk2vcr" path="res://assets/sounds/audio_manager/audio_manager.gd" id="1_qqohl"]
 [ext_resource type="Script" uid="uid://dtq3taxvwwv22" path="res://assets/sounds/audio_manager/sound_effect.gd" id="2_jjy3v"]
 [ext_resource type="Resource" uid="uid://d4b280wnpbyg3" path="res://scenes/entities/unit/sounds/unit_die.tres" id="3_bx24f"]
 [ext_resource type="Resource" uid="uid://c25jxt1tcchil" path="res://scenes/entities/enemy/sounds/enemy_die.tres" id="4_aeaqy"]
+[ext_resource type="Resource" uid="uid://bwgqetpyubkod" path="res://scenes/entities/unit/sounds/unit_walk.tres" id="5_thkjd"]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_qqohl")
-sound_effects = Array[ExtResource("2_jjy3v")]([ExtResource("3_bx24f"), ExtResource("4_aeaqy")])
+sound_effects = Array[ExtResource("2_jjy3v")]([ExtResource("3_bx24f"), ExtResource("4_aeaqy"), ExtResource("5_thkjd")])

@@ -17,6 +17,7 @@ func create_audio(type: int) -> void:
 		var player = AudioStreamPlayer.new()
 		add_child(player)
 		player.stream = sfx.sound_effect
+		player.bus = sfx.bus
 		player.volume_db = sfx.volume
 		player.pitch_scale = sfx.pitch_scale + randf_range(-sfx.pitch_randomness, sfx.pitch_randomness)
 		player.finished.connect(sfx.on_audio_finished)
@@ -34,6 +35,7 @@ func create_2d_audio_at_location(position: Vector2, type: int) -> void:
 		add_child(player)
 		player.position = position
 		player.stream = sfx.sound_effect
+		player.bus = sfx.bus
 		player.volume_db = sfx.volume
 		player.pitch_scale = sfx.pitch_scale + randf_range(-sfx.pitch_randomness, sfx.pitch_randomness)
 		player.finished.connect(sfx.on_audio_finished)
