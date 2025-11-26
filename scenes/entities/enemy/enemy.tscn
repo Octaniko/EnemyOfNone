@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://kfgm162v1xgt"]
+[gd_scene load_steps=27 format=3 uid="uid://kfgm162v1xgt"]
 
 [ext_resource type="Script" uid="uid://cs05woliwjw83" path="res://scenes/entities/enemy/enemy.gd" id="1_dt443"]
 [ext_resource type="Script" uid="uid://bcneufwksqfqs" path="res://scenes/entities/enemy/states/enemy_idle.gd" id="2_3fvr7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cbq6v6vodyt1i" path="res://scenes/entities/enemy/states/enemy_follow.gd" id="5_4wwj3"]
 [ext_resource type="Shader" uid="uid://biymf17lmuqph" path="res://assets/shaders/circle_progress_bar.gdshader" id="7_7gxlw"]
 [ext_resource type="Script" uid="uid://btp8i2hvvpwgb" path="res://scenes/entities/enemy/states/enemy_attack.gd" id="11_8ei1b"]
+[ext_resource type="AudioStream" uid="uid://dg3jnil1yply8" path="res://assets/sounds/unit/bulborb-death_QvcJFqL.mp3" id="11_frkcr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ddkys"]
 atlas = ExtResource("2_ilesx")
@@ -203,6 +204,10 @@ move_speed = 50.0
 script = ExtResource("11_8ei1b")
 follow_state = NodePath("../Follow")
 animation_name = "attack"
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_frkcr")
+bus = &"Sounds"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

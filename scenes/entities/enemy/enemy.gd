@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var state_machine: Node = $StateMachine
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var health_bar: ColorRect = $ProgressBar
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound
 
 @export var carcass_scene : PackedScene
 @export var max_health := 10
@@ -52,6 +53,10 @@ func take_damage(amount: int) -> void:
 		die()
 
 func die() -> void:
+	death_sound.play()
+	death_sound.connect("finished", Callable(self, "_on_death_sound_finished"))
+
+func _on_death_sound_finished() -> void:
 	_spawn_carcass()
 	queue_free()
 
